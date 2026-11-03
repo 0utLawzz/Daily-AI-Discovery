@@ -1,0 +1,27 @@
+{
+  "timezone": "Asia/Karachi",
+  "frequency": "one discovery per day",
+  "free_only": true,
+  "allow_freemium": true,
+  "exclude_paid_only": true,
+  "days": [
+    { "day": "Monday", "category": "Image generation and editing AI" },
+    { "day": "Tuesday", "category": "Video generation and editing AI" },
+    { "day": "Wednesday", "category": "Cartoon, animation, avatar and character creation AI" },
+    { "day": "Thursday", "category": "Voice, speech, music and audio AI" },
+    { "day": "Friday", "category": "Coding and developer AI" },
+    { "day": "Saturday", "category": "Hidden gems from any AI category" },
+    { "day": "Sunday", "category": "General-purpose, research, reasoning and multimodal AI" }
+  ],
+  "research_requirements": [
+    "Choose exactly one tool per day.",
+    "Check history.json and avoid exact duplicates and near-duplicates.",
+    "Use official product and pricing sources wherever possible.",
+    "State free-tier quotas and limits; never describe a paid-only product as free.",
+    "Verify official Android Google Play app link; explicitly say when no official app is verified.",
+    "Check Pakistan signup, regional availability and payment restrictions when verifiable.",
+    "Include credible quality evidence; never invent benchmarks, ratings or performance claims.",
+    "Include official website, direct try/use link, date checked and concise verdict.",
+    "If evidence is unavailable, say so clearly."
+  ]
+}
