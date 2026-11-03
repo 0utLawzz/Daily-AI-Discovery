@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b1020">
+<meta name="description" content="One useful free or freemium AI discovery, researched every day.">
+<title>Daily AI Discovery</title>
+<style>
+:root{color-scheme:dark;--bg:#090e1b;--panel:#111a2d;--panel2:#151f35;--line:#26334c;--muted:#91a0b9;--text:#edf3ff;--mint:#6ee7c2;--blue:#83a8ff;--gold:#ffd28a}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 15% -10%,#1b3154 0,transparent 42%),radial-gradient(ellipse at 100% 15%,#173d3b 0,transparent 30%),var(--bg);color:var(--text);font:15px/1.6 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
+a{color:var(--mint);text-decoration:none}a:hover{text-decoration:underline}.wrap{width:min(1120px,calc(100% - 36px));margin:auto}
+header{padding:25px 0;border-bottom:1px solid #ffffff12}.nav{display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{font-weight:800;letter-spacing:-.04em;font-size:19px}.brand span{color:var(--mint)}.navlinks{display:flex;gap:20px;color:var(--muted);font-size:13px}
+.hero{padding:72px 0 42px;max-width:790px}.eyebrow{color:var(--mint);font-size:11px;font-weight:800;letter-spacing:.19em;text-transform:uppercase}.hero h1{font-size:clamp(38px,7vw,70px);line-height:1.02;letter-spacing:-.065em;margin:16px 0}.hero h1 em{font-style:normal;color:var(--mint)}.hero p{max-width:650px;color:var(--muted);font-size:17px;margin:18px 0 0}.chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:25px}.chip{border:1px solid var(--line);background:#ffffff08;color:#c7d4e9;border-radius:99px;padding:7px 12px;font-size:12px}
+.section-head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin:35px 0 16px}.section-head h2{margin:0;font-size:22px;letter-spacing:-.035em}.section-head p{margin:3px 0 0;color:var(--muted);font-size:13px}
+.feature{border:1px solid #42645f;background:linear-gradient(120deg,#142a32,#111a2d 62%);border-radius:22px;padding:28px;min-height:230px;display:flex;align-items:center;justify-content:space-between;gap:20px;overflow:hidden}.feature h3{font-size:27px;margin:8px 0}.feature p{color:var(--muted);max-width:620px;margin:0}.empty-mark{width:110px;height:110px;flex:0 0 110px;border-radius:30px;border:1px solid #ffffff20;display:grid;place-items:center;background:#ffffff08;font-size:42px;color:var(--mint)}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.day{padding:17px;border:1px solid var(--line);background:#ffffff06;border-radius:15px}.day-top{display:flex;justify-content:space-between;gap:12px}.day strong{font-size:14px}.day small{color:var(--mint);font-size:11px;text-transform:uppercase;letter-spacing:.08em}.day p{margin:5px 0 0;color:var(--muted);font-size:13px}
+.toolbar{display:flex;gap:10px;align-items:center;margin:15px 0}.search{width:100%;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;color:var(--text);font:inherit;outline:none}.search:focus{border-color:var(--mint)}
+.history-empty{padding:28px;text-align:center;border:1px dashed #34435f;border-radius:16px;color:var(--muted)}
+footer{margin-top:65px;padding:25px 0 40px;border-top:1px solid #ffffff12;color:var(--muted);font-size:12px;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+@media(max-width:650px){.navlinks{gap:12px}.hero{padding:52px 0 25px}.feature{padding:21px}.empty-mark{width:68px;height:68px;flex-basis:68px;border-radius:20px;font-size:28px}.grid{grid-template-columns:1fr}.section-head{align-items:start;flex-direction:column}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav"><div class="brand">DAILY <span>AI</span> DISCOVERY</div><nav class="navlinks"><a href="#schedule">Schedule</a><a href="#archive">Archive</a><a href="https://github.com/0utLawzz/Daily-AI-Discovery" target="_blank" rel="noreferrer">GitHub ↗</a></nav></div></header>
+<main class="wrap">
+<section class="hero"><div class="eyebrow">One discovery. Every day.</div><h1>Find your next<br><em>AI superpower.</em></h1><p>A carefully researched AI tool every day. We focus on useful free and freemium tools, explain what you can actually do with them, and keep a public record so discoveries don't repeat.</p><div class="chips"><span class="chip">✦ Free & freemium first</span><span class="chip">↗ Official links</span><span class="chip">◎ No duplicate picks</span><span class="chip">Pakistan-aware checks</span></div></section>
+<section><div class="section-head"><div><div class="eyebrow">Latest feature</div><h2>Today's discovery</h2><p id="updated">Waiting for the first researched feature.</p></div></div>
+<div class="feature" id="feature"><div><div class="eyebrow">Coming up</div><h3>First discovery is on its way</h3><p>This space will show the selected AI tool, what it does, free-plan limits, evidence, and direct links. No made-up ratings or benchmark claims.</p></div><div class="empty-mark">✳</div></div></section>
+<section id="schedule"><div class="section-head"><div><div class="eyebrow">Seven-day rotation</div><h2>Discovery schedule</h2><p>One category per day, with hidden gems on Saturday.</p></div></div><div class="grid" id="schedule-grid"></div></section>
+<section id="archive"><div class="section-head"><div><div class="eyebrow">No repeats</div><h2>Previously featured</h2><p id="count">0 discoveries published so far.</p></div></div><div class="toolbar"><input class="search" id="search" type="search" placeholder="Search featured tools or categories…" aria-label="Search archive"></div><div id="history" class="history-empty">The archive is empty for now. The first verified pick will appear here.</div></section>
+</main>
+<footer class="wrap"><span>Daily AI Discovery · Independent tool research</span><span>Built with GitHub Pages · <a href="https://github.com/0utLawzz/Daily-AI-Discovery">View the project</a></span></footer>
+<script>
+const schedule=[
+["Monday","Image generation & editing"],["Tuesday","Video generation & editing"],["Wednesday","Cartoon, animation, avatars & characters"],["Thursday","Voice, speech, music & audio"],["Friday","Coding & developer tools"],["Saturday","Hidden gems · any AI category"],["Sunday","General AI, research, reasoning & multimodal"]
+];
+const grid=document.getElementById("schedule-grid");
+schedule.forEach(([day,topic])=>{const el=document.createElement("article");el.className="day";el.innerHTML="<div class='day-top'><strong>"+day+"</strong><small>Weekly focus</small></div><p>"+topic+"</p>";grid.appendChild(el)});
+let records=[];
+function safeLink(url,label){if(!url)return "";try{const u=new URL(url);if(!["https:","http:"].includes(u.protocol))return "";return "<a href='"+u.href.replace(/'/g,"%27")+"' target='_blank' rel='noopener noreferrer'>"+label+" ↗</a>"}catch{return ""}}
+function renderFeature(item){
+ if(!item)return;
+ document.getElementById("updated").textContent="Last updated: "+(item.date_checked||item.date||"date not supplied");
+ const name=item.name||item.tool_name||"Featured AI tool";
+ const category=item.category||"AI tool";
+ const summary=item.what_it_does||item.description||"A new tool has been researched.";
+ const official=safeLink(item.official_url||item.website,"Official website");
+ const use=safeLink(item.use_url||item.try_url,"Try the tool");
+ const play=item.android_app_verified===true?safeLink(item.android_play_url,"Google Play app"): "<span style='color:var(--muted)'>No official Android app verified</span>";
+ document.getElementById("feature").innerHTML="<div><div class='eyebrow'>"+category+"</div><h3>"+name+"</h3><p>"+summary+"</p><p style='margin-top:18px;display:flex;gap:16px;flex-wrap:wrap'>"+official+use+play+"</p></div><div class='empty-mark'>✳</div>";
+}
+function renderHistory(list){
+ const host=document.getElementById("history");document.getElementById("count").textContent=list.length+" discoveries published so far.";
+ if(!list.length){host.className="history-empty";host.textContent="The archive is empty for now. The first verified pick will appear here.";return}
+ host.className="";host.innerHTML=list.map(x=>"<article class='day' style='margin-bottom:10px'><div class='day-top'><strong>"+(x.name||x.tool_name||"AI tool")+"</strong><small>"+(x.date||x.date_checked||"")+"</small></div><p>"+(x.category||"AI")+(x.short_verdict?" · "+x.short_verdict:"")+"</p>"+safeLink(x.official_url||x.website,"Official website")+"</article>").join("");
+}
+function renderSearch(){const q=document.getElementById("search").value.toLowerCase();renderHistory(records.filter(x=>JSON.stringify(x).toLowerCase().includes(q)))}
+document.getElementById("search").addEventListener("input",renderSearch);
+Promise.all([fetch("./data/featured.json").then(r=>r.ok?r.json():{}).catch(()=>({})),fetch("./data/history.json").then(r=>r.ok?r.json():[]).catch(()=>[])])
+.then(([featured,history])=>{renderFeature(featured.latest||featured);records=Array.isArray(history)?history:(history.items||[]);renderHistory(records)})
+.catch(()=>{});
+</script>
+</body></html>
