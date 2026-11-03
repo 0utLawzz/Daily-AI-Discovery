@@ -1,4 +1,28 @@
 {
-  "updated_at": null,
-  "latest": null
+  "updated_at": "2026-11-04",
+  "latest": {
+    "date": "2026-11-04",
+    "date_checked": "2026-11-04",
+    "name": "Adobe Firefly — Animated Cartoon Generator",
+    "category": "Cartoon, animation, avatars & character creation AI",
+    "short_verdict": "Best for quick cartoon-style motion tests; free daily generations are limited and the exact allowance can vary.",
+    "what_it_does": "Turns a text description or uploaded first frame into a short animated cartoon video. Adobe says clips are usually around five seconds, can be downloaded as MP4, and can be combined in its video editor.",
+    "why_try_it": "A practical way to test a cartoon character or mascot in motion without building a full animation workflow. It also sits inside Adobe's broader creative app ecosystem.",
+    "free_tier": "Free Adobe account: limited complimentary daily generations across selected models and features. Adobe does not publish one fixed number for all free users; limits and available models can change. Video generations may consume more access than standard image features.",
+    "limits": "Expect a small daily allowance, short clips (typically about five seconds), and model/resolution availability that depends on the selected feature. More generations and broader model access require a paid plan.",
+    "signup_pakistan": "Adobe's published Firefly availability exclusions list does not name Pakistan. This is not a live Pakistan account/signup test; local payment acceptance was not verified.",
+    "quality_evidence": "Official feature documentation describes text-to-cartoon and image-to-video workflows, MP4 downloads, and short clips. No independent benchmark or verified comparative rating was found for this specific workflow.",
+    "android_app_verified": true,
+    "android_play_url": "https://play.google.com/store/apps/details?id=com.adobe.firefly",
+    "official_url": "https://www.adobe.com/products/firefly/features/ai-animation-generator/animated-cartoon.html",
+    "use_url": "https://firefly.adobe.com/",
+    "pricing_url": "https://www.adobe.com/products/firefly/plans.html",
+    "sources": [
+      "https://www.adobe.com/products/firefly/features/ai-animation-generator/animated-cartoon.html",
+      "https://helpx.adobe.com/creative-cloud/apps/generative-ai/generative-credits-faq.html",
+      "https://www.adobe.com/products/firefly/app.html",
+      "https://play.google.com/store/apps/details?id=com.adobe.firefly",
+      "https://helpx-origin.aws116.adobeitc.com/uk/firefly/web/get-started/learn-the-basics/adobe-firefly-faq.html"
+    ]
+  }
 }
