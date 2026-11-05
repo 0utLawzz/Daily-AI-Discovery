@@ -1,66 +1,636 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#0b1020">
-<meta name="description" content="One useful free or freemium AI discovery, researched every day.">
-<meta property="og:title" content="Daily AI Discovery">
-<meta property="og:description" content="One useful free or freemium AI discovery, researched every day.">
-<title>Daily AI Discovery</title>
-<style>
-:root{color-scheme:dark;--bg:#090e1b;--panel:#111a2d;--panel2:#151f35;--line:#26334c;--muted:#91a0b9;--text:#edf3ff;--mint:#6ee7c2;--blue:#83a8ff;--gold:#ffd28a}
-*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 15% -10%,#1b3154 0,transparent 42%),radial-gradient(ellipse at 100% 15%,#173d3b 0,transparent 30%),var(--bg);color:var(--text);font:15px/1.6 Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,sans-serif}
-a{color:var(--mint);text-decoration:none}a:hover{text-decoration:underline}.wrap{width:min(1120px,calc(100% - 36px));margin:auto}
-header{padding:25px 0;border-bottom:1px solid #ffffff12}.nav{display:flex;align-items:center;justify-content:space-between;gap:18px}.brand{font-weight:800;letter-spacing:-.04em;font-size:19px}.brand span{color:var(--mint)}.navlinks{display:flex;gap:20px;color:var(--muted);font-size:13px}
-.hero{padding:72px 0 42px;max-width:790px}.eyebrow{color:var(--mint);font-size:11px;font-weight:800;letter-spacing:.19em;text-transform:uppercase}.hero h1{font-size:clamp(38px,7vw,70px);line-height:1.02;letter-spacing:-.065em;margin:16px 0}.hero h1 em{font-style:normal;color:var(--mint)}.hero p{max-width:650px;color:var(--muted);font-size:17px;margin:18px 0 0}.chips{display:flex;flex-wrap:wrap;gap:9px;margin-top:25px}.chip{border:1px solid var(--line);background:#ffffff08;color:#c7d4e9;border-radius:99px;padding:7px 12px;font-size:12px}
-.section-head{display:flex;justify-content:space-between;align-items:end;gap:15px;margin:35px 0 16px}.section-head h2{margin:0;font-size:22px;letter-spacing:-.035em}.section-head p{margin:3px 0 0;color:var(--muted);font-size:13px}
-.feature{border:1px solid #42645f;background:linear-gradient(120deg,#142a32,#111a2d 62%);border-radius:22px;padding:28px;min-height:230px;display:flex;align-items:center;justify-content:space-between;gap:20px;overflow:hidden}.feature h3{font-size:27px;margin:8px 0}.feature p{color:var(--muted);max-width:620px;margin:0}.empty-mark{width:110px;height:110px;flex:0 0 110px;border-radius:30px;border:1px solid #ffffff20;display:grid;place-items:center;background:#ffffff08;font-size:42px;color:var(--mint)}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.day{padding:17px;border:1px solid var(--line);background:#ffffff06;border-radius:15px}.day-top{display:flex;justify-content:space-between;gap:12px}.day strong{font-size:14px}.day small{color:var(--mint);font-size:11px;text-transform:uppercase;letter-spacing:.08em}.day p{margin:5px 0 0;color:var(--muted);font-size:13px}
-.toolbar{display:flex;gap:10px;align-items:center;margin:15px 0}.search{width:100%;background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 14px;color:var(--text);font:inherit;outline:none}.search:focus{border-color:var(--mint)}
-.history-empty{padding:28px;text-align:center;border:1px dashed #34435f;border-radius:16px;color:var(--muted)}
-footer{margin-top:65px;padding:25px 0 40px;border-top:1px solid #ffffff12;color:var(--muted);font-size:12px;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
-@media(max-width:650px){.navlinks{gap:12px}.hero{padding:52px 0 25px}.feature{padding:21px}.empty-mark{width:68px;height:68px;flex-basis:68px;border-radius:20px;font-size:28px}.grid{grid-template-columns:1fr}.section-head{align-items:start;flex-direction:column}}
-</style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f8f7f4">
+    <meta name="description" content="One useful free or freemium AI discovery, researched every day.">
+    <meta property="og:title" content="Daily AI Discovery">
+    <meta property="og:description" content="One useful free or freemium AI discovery, researched every day.">
+    <title>Daily AI Discovery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f8f7f4;
+            --ink: #1a1a1a;
+            --accent: #ff4d00;
+            --ink-faint: rgba(26, 26, 26, 0.1);
+            --ink-medium: rgba(26, 26, 26, 0.6);
+        }
+
+        * { box-sizing: border-box; }
+        ::-selection { background: var(--accent); color: var(--bg); }
+
+        body {
+            margin: 0;
+            background-color: var(--bg);
+            color: var(--ink);
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.6;
+            height: 100vh;
+            display: grid;
+            grid-template-columns: 280px 1fr 320px;
+            overflow: hidden;
+        }
+
+        /* Fixed Sidebar Navigation */
+        aside.nav-pane {
+            border-right: 1.5px solid var(--ink);
+            padding: 32px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background: var(--bg);
+            z-index: 10;
+        }
+
+        .brand {
+            font-family: 'Syne', sans-serif;
+            font-weight: 800;
+            font-size: 1.5rem;
+            line-height: 0.9;
+            text-transform: uppercase;
+            letter-spacing: -0.04em;
+        }
+
+        .brand span { color: var(--accent); }
+
+        .nav-links {
+            margin-top: 48px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--ink);
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: color 0.15s ease;
+        }
+
+        .nav-links a:hover { color: var(--accent); }
+
+        /* Main Content Scroll Area */
+        main {
+            height: 100vh;
+            overflow-y: auto;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        section {
+            padding: 64px;
+            border-bottom: 1px solid var(--ink-faint);
+        }
+
+        .label {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--ink-medium);
+            display: block;
+            margin-bottom: 16px;
+        }
+
+        .hero h1 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(3rem, 6vw, 5rem);
+            line-height: 0.85;
+            letter-spacing: -0.06em;
+            margin: 0 0 24px 0;
+            text-transform: uppercase;
+        }
+
+        .hero h1 em {
+            font-style: normal;
+            color: var(--accent);
+            display: block;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 520px;
+            color: var(--ink-medium);
+            margin-bottom: 32px;
+        }
+
+        .chips {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .chip {
+            padding: 4px 12px;
+            border: 1px solid var(--ink);
+            border-radius: 2px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            background: transparent;
+        }
+
+        .feature-card {
+            background: var(--ink);
+            color: var(--bg);
+            padding: 40px;
+            border-radius: 4px;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .feature-card h3 {
+            font-family: 'Syne', sans-serif;
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            line-height: 1.05;
+            margin: 8px 0 16px 0;
+            letter-spacing: -0.02em;
+        }
+
+        .feature-card p {
+            color: rgba(255,255,255,0.78);
+            margin-bottom: 24px;
+            max-width: 650px;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .feature-links {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+
+        .feature-links a {
+            color: var(--accent);
+            font-family: 'Space Mono', monospace;
+            font-size: 0.75rem;
+            text-decoration: none;
+            border-bottom: 1px solid var(--accent);
+            padding-bottom: 2px;
+            transition: opacity 0.15s ease;
+        }
+
+        .feature-links a:hover {
+            opacity: 0.8;
+        }
+
+        .glyph {
+            font-size: 4rem;
+            opacity: 0.25;
+            font-family: 'Space Mono', monospace;
+            user-select: none;
+        }
+
+        /* Right Schedule Pane */
+        .schedule-pane {
+            border-left: 1.5px solid var(--ink);
+            height: 100vh;
+            overflow-y: auto;
+            padding: 32px;
+            background: #fff;
+        }
+
+        .schedule-list {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            margin-top: 32px;
+        }
+
+        .day-item {
+            border-bottom: 1px solid var(--ink-faint);
+            padding-bottom: 16px;
+        }
+
+        .day-item strong {
+            font-family: 'Space Mono', monospace;
+            display: block;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .day-item p {
+            font-size: 0.85rem;
+            margin: 4px 0 0 0;
+            color: var(--ink-medium);
+        }
+
+        /* Responsive In-Main Schedule (shown when side schedule is hidden) */
+        .main-schedule-section {
+            display: none;
+        }
+
+        /* Search & History */
+        .archive-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 32px;
+            gap: 16px;
+        }
+
+        .search-container {
+            margin-bottom: 32px;
+        }
+
+        .search-input {
+            width: 100%;
+            background: none;
+            border: none;
+            border-bottom: 2px solid var(--ink);
+            font-family: 'Syne', sans-serif;
+            font-size: 1.5rem;
+            padding: 8px 0;
+            outline: none;
+            color: var(--ink);
+            border-radius: 0;
+        }
+
+        .search-input:focus {
+            border-bottom-color: var(--accent);
+        }
+
+        .search-input::placeholder {
+            color: var(--ink-medium);
+            opacity: 0.5;
+        }
+
+        .history-grid {
+            display: grid;
+            gap: 24px;
+        }
+
+        .history-item {
+            border: 1px solid var(--ink-faint);
+            background: #ffffff;
+            padding: 24px;
+            border-radius: 2px;
+            transition: border-color 0.15s ease;
+        }
+
+        .history-item:hover {
+            border-color: var(--ink);
+        }
+
+        .history-item-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+            gap: 12px;
+        }
+
+        .history-item-top strong {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.2rem;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        .history-item p {
+            font-size: 0.9rem;
+            color: var(--ink-medium);
+            margin: 0 0 16px 0;
+        }
+
+        .history-links {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .history-links a {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--accent);
+            text-decoration: none;
+            border-bottom: 1px solid var(--accent);
+            padding-bottom: 2px;
+        }
+
+        .history-empty {
+            padding: 40px;
+            text-align: center;
+            border: 1px dashed var(--ink-faint);
+            font-family: 'Space Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--ink-medium);
+        }
+
+        footer {
+            padding: 32px 64px;
+            border-top: 1.5px solid var(--ink);
+            display: flex;
+            justify-content: space-between;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            text-transform: uppercase;
+            color: var(--ink-medium);
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        footer a {
+            color: var(--ink);
+            text-decoration: none;
+            border-bottom: 1px solid var(--ink);
+        }
+
+        @media (max-width: 1200px) {
+            body {
+                grid-template-columns: 240px 1fr;
+            }
+            .schedule-pane {
+                display: none;
+            }
+            .main-schedule-section {
+                display: block;
+            }
+            section {
+                padding: 48px 36px;
+            }
+            footer {
+                padding: 24px 36px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                display: block;
+                height: auto;
+                overflow: auto;
+            }
+            aside.nav-pane {
+                border-right: none;
+                border-bottom: 1.5px solid var(--ink);
+                padding: 24px 20px;
+            }
+            .nav-links {
+                margin-top: 20px;
+                flex-direction: row;
+                flex-wrap: wrap;
+                gap: 16px;
+            }
+            main {
+                height: auto;
+                overflow-y: visible;
+            }
+            section {
+                padding: 36px 20px;
+            }
+            .hero h1 {
+                font-size: 2.8rem;
+            }
+            .feature-card {
+                grid-template-columns: 1fr;
+                padding: 28px 20px;
+                gap: 24px;
+            }
+            .glyph {
+                display: none;
+            }
+            footer {
+                padding: 24px 20px;
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
 </head>
 <body>
-<header><div class="wrap nav"><div class="brand">DAILY <span>AI</span> DISCOVERY</div><nav class="navlinks"><a href="#schedule">Schedule</a><a href="#archive">Archive</a><a href="https://github.com/0utLawzz/Daily-AI-Discovery" target="_blank" rel="noreferrer">GitHub ↗</a></nav></div></header>
-<main class="wrap">
-<section class="hero"><div class="eyebrow">One discovery. Every day.</div><h1>Find your next<br><em>AI superpower.</em></h1><p>A carefully researched AI tool every day. We focus on useful free and freemium tools, explain what you can actually do with them, and keep a public record so discoveries don't repeat.</p><div class="chips"><span class="chip">✦ Free & freemium first</span><span class="chip">↗ Official links</span><span class="chip">◎ No duplicate picks</span><span class="chip">Pakistan-aware checks</span></div></section>
-<section><div class="section-head"><div><div class="eyebrow">Latest feature</div><h2>Today's discovery</h2><p id="updated">Waiting for the first researched feature.</p></div></div>
-<div class="feature" id="feature"><div><div class="eyebrow">Coming up</div><h3>First discovery is on its way</h3><p>This space will show the selected AI tool, what it does, free-plan limits, evidence, and direct links. No made-up ratings or benchmark claims.</p></div><div class="empty-mark">✳</div></div></section>
-<section id="schedule"><div class="section-head"><div><div class="eyebrow">Seven-day rotation</div><h2>Discovery schedule</h2><p>One category per day, with hidden gems on Saturday.</p></div></div><div class="grid" id="schedule-grid"></div></section>
-<section id="archive"><div class="section-head"><div><div class="eyebrow">No repeats</div><h2>Previously featured</h2><p id="count">0 discoveries published so far.</p></div></div><div class="toolbar"><input class="search" id="search" type="search" placeholder="Search featured tools or categories…" aria-label="Search archive"></div><div id="history" class="history-empty">The archive is empty for now. The first verified pick will appear here.</div></section>
-</main>
-<footer class="wrap"><span>Daily AI Discovery · Independent tool research</span><span>Built with GitHub Pages · <a href="https://github.com/0utLawzz/Daily-AI-Discovery">View the project</a></span></footer>
-<script>
-const schedule=[
-["Monday","Image generation & editing"],["Tuesday","Video generation & editing"],["Wednesday","Cartoon, animation, avatars & characters"],["Thursday","Voice, speech, music & audio"],["Friday","Coding & developer tools"],["Saturday","Hidden gems · any AI category"],["Sunday","General AI, research, reasoning & multimodal"]
-];
-const grid=document.getElementById("schedule-grid");
-schedule.forEach(([day,topic])=>{const el=document.createElement("article");el.className="day";el.innerHTML="<div class='day-top'><strong>"+day+"</strong><small>Weekly focus</small></div><p>"+topic+"</p>";grid.appendChild(el)});
-let records=[];
-function safeLink(url,label){if(!url)return "";try{const u=new URL(url);if(!["https:","http:"].includes(u.protocol))return "";return "<a href='"+u.href.replace(/'/g,"%27")+"' target='_blank' rel='noopener noreferrer'>"+label+" ↗</a>"}catch{return ""}}
-function renderFeature(item){
- if(!item)return;
- document.getElementById("updated").textContent="Last updated: "+(item.date_checked||item.date||"date not supplied");
- const name=item.name||item.tool_name||"Featured AI tool";
- const category=item.category||"AI tool";
- const summary=item.what_it_does||item.description||"A new tool has been researched.";
- const official=safeLink(item.official_url||item.website,"Official website");
- const use=safeLink(item.use_url||item.try_url,"Try the tool");
- const play=item.android_app_verified===true?safeLink(item.android_play_url,"Google Play app"): "<span style='color:var(--muted)'>No official Android app verified</span>";
- document.getElementById("feature").innerHTML="<div><div class='eyebrow'>"+category+"</div><h3>"+name+"</h3><p>"+summary+"</p><p style='margin-top:18px;display:flex;gap:16px;flex-wrap:wrap'>"+official+use+play+"</p></div><div class='empty-mark'>✳</div>";
-}
-function renderHistory(list){
- const host=document.getElementById("history");document.getElementById("count").textContent=list.length+" discoveries published so far.";
- if(!list.length){host.className="history-empty";host.textContent="The archive is empty for now. The first verified pick will appear here.";return}
- host.className="";host.innerHTML=list.map(x=>"<article class='day' style='margin-bottom:10px'><div class='day-top'><strong>"+(x.name||x.tool_name||"AI tool")+"</strong><small>"+(x.date||x.date_checked||"")+"</small></div><p>"+(x.category||"AI")+(x.short_verdict?" · "+x.short_verdict:"")+"</p>"+safeLink(x.official_url||x.website,"Official website")+"</article>").join("");
-}
-function renderSearch(){const q=document.getElementById("search").value.toLowerCase();renderHistory(records.filter(x=>JSON.stringify(x).toLowerCase().includes(q)))}
-document.getElementById("search").addEventListener("input",renderSearch);
-Promise.all([fetch("./data/featured.json").then(r=>r.ok?r.json():{}).catch(()=>({})),fetch("./data/history.json").then(r=>r.ok?r.json():[]).catch(()=>[])])
-.then(([featured,history])=>{renderFeature(featured.latest||featured);records=Array.isArray(history)?history:(history.items||[]);renderHistory(records)})
-.catch(()=>{});
-</script>
-</body></html>
+
+    <aside class="nav-pane">
+        <div>
+            <div class="brand">DAILY<span>AI</span><br>DISCOVERY</div>
+            <nav class="nav-links">
+                <a href="#latest">/ Latest</a>
+                <a href="#schedule">/ Schedule</a>
+                <a href="#archive">/ Archive</a>
+                <a href="https://github.com/0utLawzz/Daily-AI-Discovery" target="_blank" rel="noopener noreferrer">/ GitHub ↗</a>
+            </nav>
+        </div>
+        <div class="label" style="margin:24px 0 0 0">Pakistan-aware checks enabled</div>
+    </aside>
+
+    <main>
+        <section class="hero">
+            <span class="label">[01] Manifesto</span>
+            <h1>Find your next <em>AI superpower.</em></h1>
+            <p>A carefully researched AI tool every day. Useful free and freemium tools only. No repeats.</p>
+            <div class="chips">
+                <span class="chip">✦ Free & freemium</span>
+                <span class="chip">↗ Official links</span>
+                <span class="chip">◎ No duplicates</span>
+                <span class="chip">Pakistan-aware</span>
+            </div>
+        </section>
+
+        <section id="latest">
+            <span class="label">[02] Today's Discovery</span>
+            <div class="archive-header">
+                <h2 style="font-family:'Syne',sans-serif; font-size:2rem; margin:0; letter-spacing:-0.03em;">THE FEATURE</h2>
+                <span class="label" id="updated" style="margin:0">Loading latest discovery...</span>
+            </div>
+            <div class="feature-card" id="feature">
+                <div>
+                    <span class="label" style="color:var(--accent)">Voice, speech, music & audio AI</span>
+                    <h3>Suno — v6-mini</h3>
+                    <p>Turns a text prompt, mood, genre or lyrics into a complete song with vocals and instrumentation. The free tier uses Suno v6-mini, a faster, lighter member of the v6 model family.</p>
+                    <div class="feature-links">
+                        <a href="https://suno.com/" target="_blank" rel="noopener noreferrer">Official website ↗</a>
+                        <a href="https://suno.com/create" target="_blank" rel="noopener noreferrer">Try the tool ↗</a>
+                        <a href="https://play.google.com/store/apps/details?id=com.suno.android" target="_blank" rel="noopener noreferrer">Google Play ↗</a>
+                    </div>
+                </div>
+                <div class="glyph">✳</div>
+            </div>
+        </section>
+
+        <section id="archive">
+            <span class="label">[03] History</span>
+            <div class="archive-header">
+                <h2 style="font-family:'Syne',sans-serif; font-size:2rem; margin:0; letter-spacing:-0.03em;">PREVIOUSLY FEATURED</h2>
+                <span class="label" id="count" style="margin:0">0 discoveries</span>
+            </div>
+            
+            <div class="search-container">
+                <input class="search-input" id="search" type="search" placeholder="Search archive..." aria-label="Search archive">
+            </div>
+
+            <div class="history-grid" id="history">
+                <div class="history-empty">Loading discoveries...</div>
+            </div>
+        </section>
+
+        <!-- Inline schedule for <1200px viewports -->
+        <section class="main-schedule-section" id="schedule-mobile">
+            <span class="label">[04] Rotation</span>
+            <h2 style="font-family:'Syne',sans-serif; font-size:2rem; margin:0 0 24px 0; letter-spacing:-0.03em;">WEEKLY CYCLE</h2>
+            <div class="schedule-list" id="schedule-grid-mobile"></div>
+        </section>
+
+        <footer>
+            <span>© DAILY AI DISCOVERY · INDEPENDENT RESEARCH</span>
+            <span>BUILT WITH GITHUB PAGES · <a href="https://github.com/0utLawzz/Daily-AI-Discovery" target="_blank" rel="noopener noreferrer">VIEW PROJECT ↗</a></span>
+        </footer>
+    </main>
+
+    <aside class="schedule-pane" id="schedule">
+        <span class="label">[04] Rotation</span>
+        <h2 style="font-family:'Syne',sans-serif; font-size:1.5rem; margin:8px 0; letter-spacing:-0.03em;">WEEKLY CYCLE</h2>
+        <div class="schedule-list" id="schedule-grid"></div>
+    </aside>
+
+    <script>
+        const schedule = [
+            ["Monday", "Image generation & editing"],
+            ["Tuesday", "Video generation & editing"],
+            ["Wednesday", "Cartoon, animation, avatars & characters"],
+            ["Thursday", "Voice, speech, music & audio"],
+            ["Friday", "Coding & developer tools"],
+            ["Saturday", "Hidden gems · any AI category"],
+            ["Sunday", "General AI, research, reasoning & multimodal"]
+        ];
+
+        function populateSchedule(targetId) {
+            const el = document.getElementById(targetId);
+            if (!el) return;
+            el.innerHTML = schedule.map(([day, topic]) => `
+                <div class="day-item">
+                    <strong>${day}</strong>
+                    <p>${topic}</p>
+                </div>
+            `).join("");
+        }
+        populateSchedule("schedule-grid");
+        populateSchedule("schedule-grid-mobile");
+
+        let records = [];
+
+        function safeLink(url, label) {
+            if (!url) return "";
+            try {
+                const u = new URL(url);
+                if (!["https:", "http:"].includes(u.protocol)) return "";
+                return `<a href="${u.href.replace(/'/g, "%27")}" target="_blank" rel="noopener noreferrer">${label} ↗</a>`;
+            } catch {
+                return "";
+            }
+        }
+
+        function renderFeature(item) {
+            if (!item) return;
+            const updatedEl = document.getElementById("updated");
+            if (updatedEl) {
+                updatedEl.textContent = "Updated " + (item.date_checked || item.date || "today");
+            }
+            const name = item.name || item.tool_name || "Featured AI tool";
+            const category = item.category || "AI Tool";
+            const summary = item.what_it_does || item.description || "A new tool has been researched.";
+            const official = safeLink(item.official_url || item.website, "Official website");
+            const use = safeLink(item.use_url || item.try_url, "Try the tool");
+            const play = item.android_app_verified === true
+                ? safeLink(item.android_play_url, "Google Play")
+                : "<span style='font-family:\"Space Mono\",monospace; font-size:0.7rem; color:rgba(255,255,255,0.45)'>No official Android app</span>";
+
+            const container = document.getElementById("feature");
+            if (container) {
+                container.innerHTML = `
+                    <div>
+                        <span class="label" style="color:var(--accent)">${category}</span>
+                        <h3>${name}</h3>
+                        <p>${summary}</p>
+                        <div class="feature-links">
+                            ${official}
+                            ${use}
+                            ${play}
+                        </div>
+                    </div>
+                    <div class="glyph">✳</div>
+                `;
+            }
+        }
+
+        function renderHistory(list) {
+            const host = document.getElementById("history");
+            const countEl = document.getElementById("count");
+            if (countEl) {
+                countEl.textContent = list.length + (list.length === 1 ? " discovery" : " discoveries");
+            }
+            if (!host) return;
+
+            if (!list.length) {
+                host.innerHTML = `<div class="history-empty">No discoveries found. Try a different search term.</div>`;
+                return;
+            }
+
+            host.innerHTML = list.map(x => {
+                const name = x.name || x.tool_name || "AI tool";
+                const date = x.date || x.date_checked || "";
+                const category = x.category || "AI";
+                const verdict = x.short_verdict ? ` · ${x.short_verdict}` : "";
+                const official = safeLink(x.official_url || x.website, "Official website");
+                const use = safeLink(x.use_url || x.try_url, "Try tool");
+                const play = x.android_app_verified === true ? safeLink(x.android_play_url, "Google Play") : "";
+
+                return `
+                    <article class="history-item">
+                        <div class="history-item-top">
+                            <strong>${name}</strong>
+                            <span class="label" style="margin:0">${date}</span>
+                        </div>
+                        <p>${category}${verdict}</p>
+                        <div class="history-links">
+                            ${official}
+                            ${use}
+                            ${play}
+                        </div>
+                    </article>
+                `;
+            }).join("");
+        }
+
+        function renderSearch() {
+            const query = (document.getElementById("search")?.value || "").toLowerCase().trim();
+            if (!query) {
+                renderHistory(records);
+                return;
+            }
+            const filtered = records.filter(x => JSON.stringify(x).toLowerCase().includes(query));
+            renderHistory(filtered);
+        }
+
+        const searchInput = document.getElementById("search");
+        if (searchInput) {
+            searchInput.addEventListener("input", renderSearch);
+        }
+
+        Promise.all([
+            fetch("./data/featured.json").then(r => r.ok ? r.json() : {}).catch(() => ({})),
+            fetch("./data/history.json").then(r => r.ok ? r.json() : []).catch(() => [])
+        ]).then(([featured, history]) => {
+            renderFeature(featured.latest || featured);
+            records = Array.isArray(history) ? history : (history.items || []);
+            renderHistory(records);
+        }).catch(err => {
+            console.error("Failed to load discovery data", err);
+        });
+    </script>
+</body>
+</html>
