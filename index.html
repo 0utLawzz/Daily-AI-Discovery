@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <style>
         :root {
             --bg: #f8f7f4;
@@ -37,6 +38,24 @@
             display: grid;
             grid-template-columns: 290px 1fr;
             overflow: hidden;
+        }
+
+        /* Material Symbols Setup */
+        .material-symbols-outlined {
+            font-family: 'Material Symbols Outlined';
+            font-weight: normal;
+            font-style: normal;
+            font-size: 22px;
+            line-height: 1;
+            letter-spacing: normal;
+            text-transform: none;
+            display: inline-block;
+            white-space: nowrap;
+            word-wrap: normal;
+            direction: ltr;
+            -webkit-font-feature-settings: 'liga';
+            -webkit-font-smoothing: antialiased;
+            vertical-align: middle;
         }
 
         /* Fixed Sidebar Navigation */
@@ -235,6 +254,9 @@
             text-transform: uppercase;
             background: transparent;
             letter-spacing: 0.04em;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
         }
 
         /* Feature Card with Hover Scale Transform & Visual Thumbnail */
@@ -500,7 +522,7 @@
             line-height: 1.55;
         }
 
-        /* Schedule Page Styles */
+        /* Schedule Page Styles with Google Icons */
         .schedule-matrix {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -546,8 +568,26 @@
         .schedule-card-head {
             display: flex;
             justify-content: space-between;
-            align-items: baseline;
-            margin-bottom: 8px;
+            align-items: center;
+            margin-bottom: 12px;
+        }
+
+        .schedule-title-with-icon {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .schedule-google-icon {
+            font-size: 1.5rem;
+            color: var(--accent);
+            background: var(--accent-soft);
+            padding: 8px;
+            border-radius: 4px;
+            border: 1px solid rgba(255, 77, 0, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .schedule-card-head strong {
@@ -712,9 +752,12 @@
             line-height: 1.55;
         }
 
-        /* Daily Research Tool Page */
+        /* Daily Research Tool & Google Sheets Integration Page */
         .research-container {
-            max-width: 900px;
+            max-width: 920px;
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
         }
 
         .research-card {
@@ -723,6 +766,73 @@
             padding: 36px;
             border-radius: 2px;
             box-shadow: 6px 6px 0px rgba(26, 26, 26, 0.9);
+        }
+
+        /* Google Workspace Official Auth Button & Bar */
+        .sheets-sync-card {
+            border: 1.5px solid var(--ink);
+            background: #ffffff;
+            padding: 28px;
+            border-radius: 2px;
+            box-shadow: 4px 4px 0px rgba(26, 26, 26, 0.85);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .sheets-auth-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            flex-wrap: wrap;
+            border-bottom: 1px solid var(--ink-faint);
+            padding-bottom: 16px;
+        }
+
+        .gsi-material-button {
+            background-color: #ffffff;
+            border: 1.5px solid var(--ink);
+            color: #1f1f1f;
+            cursor: pointer;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.76rem;
+            font-weight: 700;
+            padding: 9px 16px;
+            border-radius: 2px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.16s ease;
+            text-transform: uppercase;
+        }
+
+        .gsi-material-button:hover {
+            background-color: #f5f5f5;
+            transform: translateY(-1px);
+            box-shadow: 2px 2px 0px var(--ink);
+        }
+
+        .user-auth-badge {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.72rem;
+        }
+
+        .user-auth-badge img {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            border: 1px solid var(--ink);
+        }
+
+        .sheets-inputs-row {
+            display: grid;
+            grid-template-columns: 1fr auto auto;
+            gap: 12px;
+            align-items: flex-end;
         }
 
         .form-grid {
@@ -783,9 +893,9 @@
         }
 
         .btn-research {
-            padding: 12px 24px;
+            padding: 12px 22px;
             font-family: 'Space Mono', monospace;
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             text-transform: uppercase;
             font-weight: 700;
             letter-spacing: 0.08em;
@@ -817,6 +927,17 @@
 
         .btn-ghost:hover {
             background: rgba(26, 26, 26, 0.05);
+        }
+
+        .btn-sheets-action {
+            background: #0f9d58;
+            color: #ffffff;
+            border: 1.5px solid #0b8043;
+        }
+
+        .btn-sheets-action:hover {
+            background: #0b8043;
+            transform: translateY(-1px);
         }
 
         .research-status-banner {
@@ -919,6 +1040,9 @@
             .thumb-image-container {
                 height: 220px;
             }
+            .sheets-inputs-row {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 900px) {
@@ -1010,7 +1134,7 @@
             </div>
             <div style="margin-top:14px; font-family:'Space Mono',monospace; font-size:0.62rem; color:var(--ink-medium); display:flex; justify-content:space-between;">
                 <a href="https://github.com/0utLawzz/Daily-AI-Discovery" target="_blank" rel="noopener noreferrer" style="color:var(--ink); text-decoration:none;">GitHub Repo ↗</a>
-                <span>v2.2</span>
+                <span>v2.3</span>
             </div>
         </div>
     </aside>
@@ -1113,14 +1237,17 @@
             </section>
         </div>
 
-        <!-- PAGE 2: SCHEDULE (7-Day Category Matrix) -->
+        <!-- PAGE 2: SCHEDULE (7-Day Category Matrix with Google Icons) -->
         <div class="page-view" id="view-schedule">
             <section class="hero">
                 <span class="label">[02] ROTATION PROTOCOL</span>
                 <h1>CURATION <em>SCHEDULE MATRIX.</em></h1>
                 <p>One distinct category researched every single day of the week, with an open category hidden gem spotlight every Saturday.</p>
                 <div class="chips">
-                    <span class="chip" id="today-day-chip">Today: Thursday · Voice & Audio</span>
+                    <span class="chip" id="today-day-chip">
+                        <span class="material-symbols-outlined" style="font-size:18px;">event_upcoming</span>
+                        <span>Today's Rotation Focus</span>
+                    </span>
                     <span class="chip">24-Hour Reset Cycle</span>
                     <span class="chip">Timezone: Asia/Karachi (UTC+5)</span>
                 </div>
@@ -1132,9 +1259,10 @@
                         <span class="label" style="margin:0 0 4px 0;">WEEKLY CYCLE BREAKDOWN</span>
                         <h2 style="font-family:'Syne',sans-serif; font-size:2rem; margin:0; letter-spacing:-0.03em;">THE 7-DAY ROTATION</h2>
                     </div>
-                    <span class="label" style="color:var(--accent);">Next Category: Friday · Coding Tools</span>
+                    <span class="label" style="color:var(--accent);">Enhanced with Google Material Symbols</span>
                 </div>
 
+                <!-- Matrix Cards with Google Material Symbols -->
                 <div class="schedule-matrix" id="schedule-matrix-list"></div>
 
                 <div class="schedule-criteria-box">
@@ -1189,16 +1317,66 @@
             </section>
         </div>
 
-        <!-- PAGE 4: DAILY RESEARCH TOOL (Update & Publish Discovery) -->
+        <!-- PAGE 4: DAILY RESEARCH TOOL & GOOGLE SHEETS EXPORT -->
         <div class="page-view" id="view-research">
             <section class="hero">
-                <span class="label">[04] DAILY CURATION ENGINE</span>
+                <span class="label">[04] DAILY CURATION & EXPORT ENGINE</span>
                 <h1>DISCOVERY <em>RESEARCH ENGINE.</em></h1>
-                <p>Update or submit daily research data. Validates anti-duplicate rules, checks formatting against the schedule guidelines, and writes directly to repository datasets.</p>
+                <p>Update or submit daily research data, cross-check anti-duplicate rules, and export published research records directly into your Google Sheets.</p>
             </section>
 
             <section>
                 <div class="research-container">
+
+                    <!-- Google Sheets Live Integration Box -->
+                    <div class="sheets-sync-card">
+                        <div class="sheets-auth-header">
+                            <div>
+                                <span class="label" style="color:#0f9d58; margin:0 0 2px 0;">GOOGLE WORKSPACE INTEGRATION</span>
+                                <h3 style="font-family:'Syne',sans-serif; font-size:1.4rem; margin:0;">Export to Google Sheets</h3>
+                            </div>
+
+                            <!-- Google Sign-In & Auth Status -->
+                            <div id="google-auth-slot">
+                                <button class="gsi-material-button" id="gsi-signin-btn" onclick="signInWithGoogleOAuth()">
+                                    <svg viewBox="0 0 48 48" style="width:18px; height:18px; display:block;">
+                                        <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"></path>
+                                        <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"></path>
+                                        <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"></path>
+                                        <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"></path>
+                                    </svg>
+                                    <span>Sign in with Google</span>
+                                </button>
+                                <div id="user-info-bar" style="display:none;" class="user-auth-badge">
+                                    <img id="user-avatar" src="" alt="Google User">
+                                    <span id="user-name">User</span>
+                                    <button class="filter-btn" style="padding:4px 8px; font-size:0.62rem;" onclick="signOutGoogleUser()">Sign Out</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Target Spreadsheet Input -->
+                        <div>
+                            <label class="form-label">Google Sheet URL or Spreadsheet ID *</label>
+                            <p style="font-size:0.8rem; color:var(--ink-medium); margin:0 0 8px 0;">Paste your Google Sheet link (e.g. <code>https://docs.google.com/spreadsheets/d/1Bxi.../edit</code>) or raw Sheet ID.</p>
+                            <div class="sheets-inputs-row">
+                                <input class="form-input" id="sheets-id-input" placeholder="https://docs.google.com/spreadsheets/d/YOUR_SPREADSHEET_ID/edit">
+                                <button class="btn-research btn-sheets-action" onclick="triggerSheetsExport(false)">
+                                    <span class="material-symbols-outlined" style="font-size:18px;">upload_file</span>
+                                    <span>Export Today's Pick</span>
+                                </button>
+                                <button class="btn-research btn-ghost" onclick="triggerSheetsExport(true)">
+                                    <span class="material-symbols-outlined" style="font-size:18px;">cloud_sync</span>
+                                    <span>Export All Vault</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Sheets Export Feedback Banner -->
+                        <div class="research-status-banner" id="sheets-status-banner"></div>
+                    </div>
+
+                    <!-- Research Submission & Publishing Form -->
                     <div class="research-card">
                         <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1.5px solid var(--ink); padding-bottom:16px; margin-bottom:20px;">
                             <div>
@@ -1300,10 +1478,12 @@
 
                             <div class="research-actions">
                                 <button type="submit" class="btn-research btn-publish" id="rf-submit-btn">
-                                    <span>⚡ Save & Publish Discovery</span>
+                                    <span class="material-symbols-outlined" style="font-size:18px;">bolt</span>
+                                    <span>Save & Publish Discovery</span>
                                 </button>
                                 <button type="button" class="btn-research btn-ghost" onclick="checkDuplicateOnline()">
-                                    <span>🔍 Check Anti-Duplicate</span>
+                                    <span class="material-symbols-outlined" style="font-size:18px;">search_check</span>
+                                    <span>Check Anti-Duplicate</span>
                                 </button>
                             </div>
                         </form>
@@ -1325,6 +1505,152 @@
         <span id="toast-message">Link copied to clipboard!</span>
     </div>
 
+    <!-- Firebase SDK & Client Logic -->
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js';
+        import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js';
+
+        let firebaseApp = null;
+        let firebaseAuth = null;
+        let googleProvider = null;
+        let inMemoryAccessToken = null;
+        let currentAuthUser = null;
+
+        // Initialize Firebase Authentication with Google Sheets Scope
+        async function setupFirebase() {
+            try {
+                const res = await fetch('/firebase-applet-config.json');
+                if (!res.ok) return;
+                const config = await res.json();
+                firebaseApp = initializeApp(config);
+                firebaseAuth = getAuth(firebaseApp);
+                googleProvider = new GoogleAuthProvider();
+                googleProvider.addScope('https://www.googleapis.com/auth/spreadsheets');
+
+                onAuthStateChanged(firebaseAuth, (user) => {
+                    currentAuthUser = user;
+                    updateAuthUI(user);
+                });
+            } catch (err) {
+                console.warn('Firebase init notice:', err);
+            }
+        }
+
+        function updateAuthUI(user) {
+            const gsiBtn = document.getElementById('gsi-signin-btn');
+            const infoBar = document.getElementById('user-info-bar');
+            const avatar = document.getElementById('user-avatar');
+            const nameEl = document.getElementById('user-name');
+
+            if (user && inMemoryAccessToken) {
+                if (gsiBtn) gsiBtn.style.display = 'none';
+                if (infoBar) infoBar.style.display = 'flex';
+                if (avatar) avatar.src = user.photoURL || '';
+                if (nameEl) nameEl.textContent = user.displayName || user.email || 'Connected';
+            } else {
+                if (gsiBtn) gsiBtn.style.display = 'inline-flex';
+                if (infoBar) infoBar.style.display = 'none';
+            }
+        }
+
+        window.signInWithGoogleOAuth = async function() {
+            if (!firebaseAuth || !googleProvider) {
+                showToast('Authentication initializing...');
+                return;
+            }
+            try {
+                const result = await signInWithPopup(firebaseAuth, googleProvider);
+                const credential = GoogleAuthProvider.credentialFromResult(result);
+                if (credential?.accessToken) {
+                    inMemoryAccessToken = credential.accessToken;
+                    showToast('Google Workspace connected with Sheets permission!');
+                    updateAuthUI(result.user);
+                }
+            } catch (err) {
+                console.error('Sign-in error:', err);
+                showToast('Sign-in cancelled or failed: ' + (err.message || ''));
+            }
+        };
+
+        window.signOutGoogleUser = async function() {
+            if (firebaseAuth) {
+                await signOut(firebaseAuth);
+                inMemoryAccessToken = null;
+                currentAuthUser = null;
+                updateAuthUI(null);
+                showToast('Signed out from Google');
+            }
+        };
+
+        // Export to Google Sheets Handler with Mandatory User Confirmation
+        window.triggerSheetsExport = async function(exportAll) {
+            const sheetInput = document.getElementById('sheets-id-input').value.trim();
+            const banner = document.getElementById('sheets-status-banner');
+
+            if (!sheetInput) {
+                showToast('Please enter a Google Sheet URL or ID first.');
+                document.getElementById('sheets-id-input').focus();
+                return;
+            }
+
+            if (!inMemoryAccessToken) {
+                showToast('Please sign in with Google to authorize writing to your spreadsheet.');
+                window.signInWithGoogleOAuth();
+                return;
+            }
+
+            const recordCount = exportAll ? (historyRecords.length || 1) : 1;
+            const targetDesc = exportAll ? `all ${recordCount} published discoveries in your vault` : `today's active discovery (${featuredDiscovery?.name || 'tool'})`;
+
+            // Mandatory User Confirmation dialog before modifying user spreadsheet
+            const confirmed = window.confirm(
+                `CONFIRM GOOGLE SHEETS EXPORT:\n\nAre you sure you want to export ${targetDesc} to your Google Sheet?\n\nThis will append rows to your spreadsheet using the Google Sheets API with your permission.`
+            );
+            if (!confirmed) return;
+
+            banner.style.display = 'flex';
+            banner.className = 'research-status-banner';
+            banner.style.background = '#f3f4f6';
+            banner.style.color = '#374151';
+            banner.innerHTML = `<span>⏳ Exporting data to Google Sheet using Google Sheets API...</span>`;
+
+            try {
+                const payload = {
+                    spreadsheetId: sheetInput,
+                    exportAll: Boolean(exportAll),
+                    discovery: exportAll ? null : featuredDiscovery,
+                    accessToken: inMemoryAccessToken
+                };
+
+                const res = await fetch('/api/export-to-sheets', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${inMemoryAccessToken}`
+                    },
+                    body: JSON.stringify(payload)
+                });
+
+                const data = await res.json();
+                if (!res.ok) throw new Error(data.error || 'Failed to export to Google Sheet');
+
+                banner.className = 'research-status-banner success';
+                banner.innerHTML = `
+                    <span>✓ <strong>Success:</strong> Appended ${data.rowsAppended} row(s) to "${data.spreadsheetTitle}" (${data.sheetName}).
+                    <a href="${data.spreadsheetUrl}" target="_blank" rel="noopener noreferrer" style="color:var(--accent); font-weight:bold; margin-left:8px; text-decoration:underline;">Open Google Sheet ↗</a></span>
+                `;
+                showToast('Successfully exported to Google Sheet!');
+            } catch (err) {
+                banner.className = 'research-status-banner error';
+                banner.innerHTML = `<span>⚠️ <strong>Export Failed:</strong> ${err.message}</span>`;
+                showToast('Export failed: ' + err.message);
+            }
+        };
+
+        setupFirebase();
+    </script>
+
+    <!-- App Data and Interactive Handlers -->
     <script>
         // Data Store
         let featuredDiscovery = null;
@@ -1332,16 +1658,15 @@
         let activeArchiveFilter = 'ALL';
 
         const scheduleData = [
-            { day: "Monday", category: "Image generation and editing AI", desc: "Diffusion models, canvas inpainting, style transfer, and vector synthesis." },
-            { day: "Tuesday", category: "Video generation and editing AI", desc: "Text-to-video, camera control, keyframe interpolation, and motion effects." },
-            { day: "Wednesday", category: "Cartoon, animation, avatar & character AI", desc: "2D/3D cartoon rigs, expressive facial animation, and character voice matching." },
-            { day: "Thursday", category: "Voice, speech, music & audio AI", desc: "Generative songs, stem isolation, TTS cloning, and background ambient design." },
-            { day: "Friday", category: "Coding and developer AI", desc: "Code completion, terminal assistants, schema generators, and automated test runners." },
-            { day: "Saturday", category: "Hidden gems from any AI category", desc: "Niche open-weights models, local desktop tools, and unheralded community projects." },
-            { day: "Sunday", category: "General-purpose, research & multimodal AI", desc: "Academic reasoning models, long-context search, and scientific discovery engines." }
+            { day: "Monday", icon: "palette", category: "Image generation and editing AI", desc: "Diffusion models, canvas inpainting, style transfer, and vector synthesis." },
+            { day: "Tuesday", icon: "videocam", category: "Video generation and editing AI", desc: "Text-to-video, camera control, keyframe interpolation, and motion effects." },
+            { day: "Wednesday", icon: "smart_toy", category: "Cartoon, animation, avatar & character AI", desc: "2D/3D cartoon rigs, expressive facial animation, and character voice matching." },
+            { day: "Thursday", icon: "graphic_eq", category: "Voice, speech, music & audio AI", desc: "Generative songs, stem isolation, TTS cloning, and background ambient design." },
+            { day: "Friday", icon: "terminal", category: "Coding and developer AI", desc: "Code completion, terminal assistants, schema generators, and automated test runners." },
+            { day: "Saturday", icon: "auto_awesome", category: "Hidden gems from any AI category", desc: "Niche open-weights models, local desktop tools, and unheralded community projects." },
+            { day: "Sunday", icon: "neurology", category: "General-purpose, research & multimodal AI", desc: "Academic reasoning models, long-context search, and scientific discovery engines." }
         ];
 
-        // Domain extraction helper
         function extractDomain(url) {
             if (!url) return '';
             try {
@@ -1352,7 +1677,6 @@
             }
         }
 
-        // View Routing / Page Navigation
         function navigateTo(viewId) {
             document.querySelectorAll('.page-view').forEach(el => el.classList.remove('active'));
             document.querySelectorAll('.nav-item').forEach(el => el.classList.remove('active'));
@@ -1366,7 +1690,6 @@
             window.location.hash = viewId;
             document.querySelector('main').scrollTop = 0;
 
-            // Close mobile menu if open
             const navPane = document.getElementById('nav-pane');
             if (navPane) navPane.classList.remove('mobile-open');
         }
@@ -1376,7 +1699,6 @@
             if (navPane) navPane.classList.toggle('mobile-open');
         }
 
-        // Safe URL link builder
         function safeLink(url, label, isBtn = false, btnClass = 'btn-outline-light') {
             if (!url) return "";
             try {
@@ -1392,7 +1714,6 @@
             }
         }
 
-        // Toast Feedback System
         let toastTimeout = null;
         function showToast(message) {
             const toast = document.getElementById('toast-notification');
@@ -1408,7 +1729,6 @@
             }, 3200);
         }
 
-        // Share Feature Button with Clipboard Copy
         function shareFeaturedTool() {
             if (!featuredDiscovery) return;
             const linkToCopy = featuredDiscovery.use_url || featuredDiscovery.official_url || window.location.href;
@@ -1442,7 +1762,6 @@
             }, 2500);
         }
 
-        // Share via Native Email mailto: Link
         function openEmailShare() {
             if (!featuredDiscovery) return;
             const name = featuredDiscovery.name || 'AI Discovery';
@@ -1475,7 +1794,6 @@
             showToast('Opening native email client...');
         }
 
-        // Copy JSON Button for Developers
         function copyFeaturedJSON() {
             if (!featuredDiscovery) return;
             const jsonStr = JSON.stringify(featuredDiscovery, null, 2);
@@ -1524,7 +1842,6 @@
             document.body.removeChild(tempInput);
         }
 
-        // Render Featured Discovery on Page 1
         function renderFeatured(item) {
             if (!item) return;
             featuredDiscovery = item;
@@ -1543,7 +1860,6 @@
             document.getElementById('feature-name').textContent = name;
             document.getElementById('feature-summary').textContent = summary;
 
-            // Direct Links
             const tryLink = document.getElementById('feature-try-link');
             if (tryLink) tryLink.href = item.use_url || item.official_url || '#';
 
@@ -1559,7 +1875,6 @@
                 }
             }
 
-            // Thumbnail / Site Preview Setup
             const thumbLink = document.getElementById('feature-thumb-link');
             const thumbImg = document.getElementById('feature-thumb-img');
             const thumbFallback = document.getElementById('feature-thumb-fallback');
@@ -1576,7 +1891,6 @@
             if (metaFavicon) metaFavicon.src = faviconUrl;
             if (faviconFallback) faviconFallback.src = faviconUrl;
 
-            // Thumbnail screenshot generator with automatic fallback
             if (thumbImg && thumbFallback) {
                 thumbImg.style.display = 'block';
                 thumbFallback.style.display = 'none';
@@ -1590,20 +1904,18 @@
                 };
             }
 
-            // Deep-Dive Dossier details
             document.getElementById('dossier-free-tier').textContent = item.free_tier || "50 credits daily quota or generous free tier. No credit card required.";
             document.getElementById('dossier-limits').textContent = item.limits || "Non-commercial free output, standard generation queues, and trial exports.";
             document.getElementById('dossier-pakistan').textContent = item.signup_pakistan || "Standard global account signup available (Google / Apple / Email).";
             document.getElementById('dossier-evidence').textContent = item.quality_evidence || "Official product documentation and verified adoption signals.";
 
-            // Pre-fill research form with today's date if empty
             const rfDate = document.getElementById('rf-date');
             if (rfDate && !rfDate.value) {
                 rfDate.value = item.date || new Date().toISOString().split('T')[0];
             }
         }
 
-        // Render Schedule Matrix on Page 2
+        // Render Schedule Matrix with Google Icons
         function renderSchedule() {
             const matrix = document.getElementById('schedule-matrix-list');
             if (!matrix) return;
@@ -1613,7 +1925,10 @@
 
             const todayChip = document.getElementById('today-day-chip');
             if (todayChip) {
-                todayChip.textContent = `Today: ${currentDayName} Focus`;
+                todayChip.innerHTML = `
+                    <span class="material-symbols-outlined" style="font-size:16px;">event_available</span>
+                    <span>Today: ${currentDayName} Focus</span>
+                `;
             }
 
             matrix.innerHTML = scheduleData.map(item => {
@@ -1621,7 +1936,10 @@
                 return `
                     <div class="schedule-card ${isToday ? 'today' : ''}">
                         <div class="schedule-card-head">
-                            <strong>${item.day}</strong>
+                            <div class="schedule-title-with-icon">
+                                <span class="material-symbols-outlined schedule-google-icon">${item.icon}</span>
+                                <strong>${item.day}</strong>
+                            </div>
                             <span class="label" style="margin:0; ${isToday ? 'color:var(--accent); font-weight:700;' : ''}">${isToday ? 'LIVE' : 'CYCLE'}</span>
                         </div>
                         <p style="font-family:'Space Mono',monospace; font-size:0.8rem; font-weight:700; color:var(--ink); margin-bottom:8px;">${item.category}</p>
@@ -1631,7 +1949,6 @@
             }).join("");
         }
 
-        // Render Archive History on Page 3
         function renderArchive(list) {
             const grid = document.getElementById('history-grid');
             const countLabel = document.getElementById('archive-count-label');
@@ -1688,7 +2005,6 @@
             }).join("");
         }
 
-        // Archive Filtering and Search
         function applyArchiveFilters() {
             const query = (document.getElementById('archive-search')?.value || '').toLowerCase().trim();
             let filtered = [...historyRecords];
@@ -1730,7 +2046,6 @@
 
         document.getElementById('archive-search')?.addEventListener('input', applyArchiveFilters);
 
-        // Research Form Submission & Duplicate Checking
         async function checkDuplicateOnline() {
             const name = document.getElementById('rf-name').value.trim();
             const url = document.getElementById('rf-official').value.trim();
@@ -1821,11 +2136,10 @@
                 showToast('Error saving discovery: ' + err.message);
             } finally {
                 submitBtn.disabled = false;
-                submitBtn.innerHTML = '<span>⚡ Save & Publish Discovery</span>';
+                submitBtn.innerHTML = '<span class="material-symbols-outlined" style="font-size:18px;">bolt</span><span>Save & Publish Discovery</span>';
             }
         }
 
-        // Test Auto-Fill Helper for Quick Demonstration
         function fillSampleData() {
             document.getElementById('rf-name').value = "Ollama — Local LLM Desktop Runner";
             document.getElementById('rf-developer').value = "Ollama Team";
@@ -1846,7 +2160,6 @@
             showToast('Sample Research Data Loaded into Form');
         }
 
-        // Initialize Application
         function initApp() {
             const initialHash = window.location.hash.replace('#', '') || 'latest';
             if (['latest', 'schedule', 'archive', 'research'].includes(initialHash)) {

@@ -2,6 +2,7 @@ import express from 'express';
 import path from 'path';
 import fs from 'fs/promises';
 import { fileURLToPath } from 'url';
+import { exportToGoogleSheets } from './scripts/exportToGoogleSheets.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -156,6 +157,47 @@ ${discovery.pricing_url ? `- **Pricing details:** ${discovery.pricing_url}\n` : 
   } catch (err) {
     console.error('Error publishing discovery:', err);
     res.status(500).json({ error: 'Failed to publish discovery', details: err.message });
+  }
+});
+
+// API: Export published research to Google Sheets using Google Sheets API v4
+app.post('/api/export-to-sheets', async (req, res) => {
+  try {
+    const authHeader = req.headers.authorization;
+    const token = authHeader && authHeader.startsWith('Bearer ') ? authHeader.slice(7) : req.body.accessToken;
+
+    if (!token) {
+      return res.status(401).json({ error: 'Missing authorized Google Workspace access token. Please sign in with Google.' });
+    }
+
+    const { spreadsheetId, sheetName, exportAll, discovery } = req.body;
+    if (!spreadsheetId) {
+      return res.status(400).json({ error: 'Spreadsheet ID or URL is required.' });
+    }
+
+    let discoveries = [];
+    if (exportAll) {
+      const rawHistory = await fs.readFile(path.join(__dirname, 'data/history.json'), 'utf8');
+      discoveries = JSON.parse(rawHistory);
+    } else if (discovery) {
+      discoveries = [discovery];
+    } else {
+      const rawFeatured = await fs.readFile(path.join(__dirname, 'data/featured.json'), 'utf8');
+      const featured = JSON.parse(rawFeatured);
+      discoveries = [featured.latest || featured];
+    }
+
+    const result = await exportToGoogleSheets({
+      spreadsheetId,
+      accessToken: token,
+      discoveries,
+      sheetName
+    });
+
+    res.json(result);
+  } catch (err) {
+    console.error('Export to Google Sheets error:', err);
+    res.status(500).json({ error: err.message || 'Failed to export data to Google Sheets.' });
   }
 });
 
