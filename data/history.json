@@ -8,5 +8,15 @@
     "use_url": "https://firefly.adobe.com/",
     "android_app_verified": true,
     "android_play_url": "https://play.google.com/store/apps/details?id=com.adobe.firefly"
+  },
+  {
+    "date": "2026-11-05",
+    "name": "Suno — v6-mini (free-tier music generation)",
+    "category": "Voice, speech, music & audio AI",
+    "short_verdict": "Strong for trying full AI song ideas free; the daily generation allowance is useful, but new free accounts cannot rely on regular downloads and free songs are non-commercial.",
+    "official_url": "https://suno.com/",
+    "use_url": "https://suno.com/create",
+    "android_app_verified": true,
+    "android_play_url": "https://play.google.com/store/apps/details?id=com.suno.android"
   }
 ]
