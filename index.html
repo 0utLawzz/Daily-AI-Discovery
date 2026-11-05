@@ -4,10 +4,75 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#f8f7f4">
-    <meta name="description" content="One useful free or freemium AI discovery, researched every day.">
-    <meta property="og:title" content="Daily AI Discovery">
-    <meta property="og:description" content="One useful free or freemium AI discovery, researched every day.">
+    
+    <!-- Primary SEO Metadata -->
     <title>Daily AI Discovery — Curated Intelligence Every Day</title>
+    <meta name="description" content="One useful free or freemium AI discovery, researched every day. Tested quotas, documented limits, verified Pakistan access, and permanent anti-duplicate tracking.">
+    <meta name="keywords" content="Daily AI Discovery, Free AI Tools, Freemium AI Directory, Best AI Tools 2026, Open Source AI Models, Ollama, Suno, Daily AI Research, Verified AI Free Tier, Pakistan AI Access, AI Superpower, Generative AI, Developer AI Tools">
+    <meta name="author" content="Daily AI Discovery Research Collective">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://daily-ai-discovery.vercel.app">
+
+    <!-- Favicon & Touch Icons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="apple-touch-icon" href="/favicon.svg">
+
+    <!-- OpenGraph / Facebook Social Preview -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://daily-ai-discovery.vercel.app">
+    <meta property="og:title" content="Daily AI Discovery — Curated Intelligence Every Day">
+    <meta property="og:description" content="One useful free or freemium AI discovery, researched every day. Tested quotas, verified Pakistan access, zero spam.">
+    <meta property="og:image" content="/og-image.svg">
+    <meta property="og:image:type" content="image/svg+xml">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Daily AI Discovery">
+
+    <!-- Twitter / X Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@DailyAIDiscovery">
+    <meta name="twitter:title" content="Daily AI Discovery — Curated Intelligence Every Day">
+    <meta name="twitter:description" content="One useful free or freemium AI discovery, researched every day. Tested quotas, verified Pakistan access, zero spam.">
+    <meta name="twitter:image" content="/og-image.svg">
+
+    <!-- RSS & Atom Feeds -->
+    <link rel="alternate" type="application/rss+xml" title="Daily AI Discovery RSS Feed" href="/feed.xml">
+    <link rel="alternate" type="application/json" title="Daily AI Discovery JSON Feed" href="/feed.json">
+
+    <!-- Schema.org Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebApplication",
+          "@id": "https://daily-ai-discovery.vercel.app/#webapp",
+          "name": "Daily AI Discovery",
+          "url": "https://daily-ai-discovery.vercel.app",
+          "applicationCategory": "DeveloperApplication",
+          "operatingSystem": "All",
+          "description": "Continuous daily repository of handpicked free and freemium artificial intelligence tools and models with documented limits.",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          }
+        },
+        {
+          "@type": "DataCatalog",
+          "@id": "https://daily-ai-discovery.vercel.app/#catalog",
+          "name": "Daily AI Discovery Historical Vault",
+          "description": "Historical repository of verified AI breakthroughs with pricing documentation and regional audit reports.",
+          "publisher": {
+            "@type": "Organization",
+            "name": "Daily AI Discovery",
+            "url": "https://github.com/0utLawzz/Daily-AI-Discovery"
+          }
+        }
+      ]
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Inter:wght@400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
@@ -815,6 +880,53 @@
             border-color: var(--ink);
         }
 
+        .filter-btn.filter-pk {
+            border-color: #10b981;
+            color: #065f46;
+            background: rgba(16, 185, 129, 0.06);
+            font-weight: 700;
+        }
+
+        .filter-btn.filter-pk:hover {
+            background: rgba(16, 185, 129, 0.14);
+            border-color: #059669;
+        }
+
+        .filter-btn.filter-pk.active {
+            background: #059669;
+            color: #ffffff;
+            border-color: #047857;
+            box-shadow: 0 0 0 2px rgba(5, 150, 105, 0.25);
+        }
+
+        #sheets-regex-badge {
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+            font-family: 'Space Mono', monospace;
+            font-size: 0.72rem;
+            border-radius: 2px;
+            margin-top: 8px;
+            padding: 8px 12px;
+            display: none;
+        }
+
+        .shortcut-badge {
+            display: inline-block;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.6rem;
+            padding: 1px 5px;
+            border-radius: 2px;
+            border: 1px solid var(--ink-faint);
+            background: rgba(26, 26, 26, 0.04);
+            color: var(--ink-medium);
+            margin-left: 6px;
+        }
+
+        .nav-item.active .shortcut-badge {
+            border-color: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+        }
+
         .history-grid {
             display: grid;
             gap: 20px;
@@ -1230,23 +1342,50 @@
             <span class="brand-sub">Curated Intelligence · 24h Cycle</span>
 
             <nav class="nav-links">
-                <button class="nav-item active" id="nav-latest" onclick="navigateTo('latest')">
-                    <span>[01] / Latest</span>
+                <button class="nav-item active" id="nav-latest" onclick="navigateTo('latest'); playBlip(520, 0.05);">
+                    <span>[01] / Latest <span class="shortcut-badge">1</span></span>
                     <span class="nav-badge" id="sidebar-latest-tag">TODAY</span>
                 </button>
-                <button class="nav-item" id="nav-schedule" onclick="navigateTo('schedule')">
-                    <span>[02] / Schedule</span>
+                <button class="nav-item" id="nav-schedule" onclick="navigateTo('schedule'); playBlip(580, 0.05);">
+                    <span>[02] / Schedule <span class="shortcut-badge">2</span></span>
                     <span class="nav-badge">7-DAY</span>
                 </button>
-                <button class="nav-item" id="nav-archive" onclick="navigateTo('archive')">
-                    <span>[03] / Archive</span>
+                <button class="nav-item" id="nav-archive" onclick="navigateTo('archive'); playBlip(660, 0.05);">
+                    <span>[03] / Archive <span class="shortcut-badge">3</span></span>
                     <span class="nav-badge" id="sidebar-archive-count">0</span>
                 </button>
-                <button class="nav-item" id="nav-research" onclick="navigateTo('research')">
-                    <span>[04] / Research Tool</span>
+                <button class="nav-item" id="nav-research" onclick="navigateTo('research'); playBlip(740, 0.05);">
+                    <span>[04] / Research Tool <span class="shortcut-badge">4</span></span>
                     <span class="nav-badge" style="background:var(--accent);color:#fff">UPDATE</span>
                 </button>
             </nav>
+
+            <!-- Keyboard Shortcuts & Micro-SFX Controls -->
+            <div style="margin-top:20px; padding:10px 12px; border:1px solid var(--ink-faint); border-radius:2px; background:rgba(26,26,26,0.02);">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+                    <span style="font-family:'Space Mono',monospace; font-size:0.6rem; font-weight:700; color:var(--ink); letter-spacing:0.06em;">⌨ SHORTCUTS</span>
+                    <span style="font-family:'Space Mono',monospace; font-size:0.58rem; color:var(--ink-medium);">[1-4] [ / ]</span>
+                </div>
+                <div style="font-family:'Space Mono',monospace; font-size:0.6rem; color:var(--ink-medium); line-height:1.4;">
+                    <span>Press <strong>1–4</strong> to switch pages<br>Press <strong>/</strong> to focus vault search</span>
+                </div>
+            </div>
+
+            <!-- Web Audio SFX Toggle -->
+            <button id="sfx-toggle-btn" class="filter-btn" style="width:100%; margin-top:10px; font-size:0.62rem; display:flex; align-items:center; justify-content:center; gap:6px; padding:6px 10px;" onclick="toggleAudioSFX()">
+                <span class="material-symbols-outlined" id="sfx-icon" style="font-size:15px; color:var(--ink);">volume_up</span>
+                <span id="sfx-label" style="font-weight:600;">SFX Sounds: ON</span>
+            </button>
+
+            <!-- Syndicate / Feed Subscriptions -->
+            <div style="display:flex; gap:6px; margin-top:8px;">
+                <a href="/feed.xml" target="_blank" class="filter-btn" style="flex:1; text-align:center; font-size:0.58rem; padding:4px 6px; text-decoration:none;" title="RSS 2.0 XML Feed">
+                    RSS XML ↗
+                </a>
+                <a href="/feed.json" target="_blank" class="filter-btn" style="flex:1; text-align:center; font-size:0.58rem; padding:4px 6px; text-decoration:none;" title="JSON Feed 1.1">
+                    JSON FEED ↗
+                </a>
+            </div>
         </div>
 
         <div class="sidebar-footer">
@@ -1256,7 +1395,7 @@
             </div>
             <div style="margin-top:14px; font-family:'Space Mono',monospace; font-size:0.62rem; color:var(--ink-medium); display:flex; justify-content:space-between;">
                 <a href="https://github.com/0utLawzz/Daily-AI-Discovery" target="_blank" rel="noopener noreferrer" style="color:var(--ink); text-decoration:none;">GitHub Repo ↗</a>
-                <span>v2.4</span>
+                <span>v2.5</span>
             </div>
         </div>
     </aside>
@@ -1483,18 +1622,31 @@
                         <input class="search-input" id="archive-search" type="search" placeholder="Search by name, category, or capability..." aria-label="Search archive">
                     </div>
                     <div class="filter-tags" id="category-filters">
-                        <button class="filter-btn active" onclick="setArchiveFilter('ALL')">All</button>
-                        <button class="filter-btn" onclick="setArchiveFilter('Voice')">Audio/Music</button>
-                        <button class="filter-btn" onclick="setArchiveFilter('Cartoon')">Cartoon/Avatars</button>
-                        <button class="filter-btn" onclick="setArchiveFilter('Image')">Image Gen</button>
-                        <button class="filter-btn" onclick="setArchiveFilter('Video')">Video</button>
-                        <button class="filter-btn" onclick="setArchiveFilter('Coding')">Developer</button>
+                        <button class="filter-btn active" onclick="setArchiveFilter('ALL'); playBlip(480, 0.04);">All</button>
+                        <button class="filter-btn" onclick="setArchiveFilter('Voice'); playBlip(520, 0.04);">Audio/Music</button>
+                        <button class="filter-btn" onclick="setArchiveFilter('Cartoon'); playBlip(560, 0.04);">Cartoon/Avatars</button>
+                        <button class="filter-btn" onclick="setArchiveFilter('Image'); playBlip(600, 0.04);">Image Gen</button>
+                        <button class="filter-btn" onclick="setArchiveFilter('Video'); playBlip(640, 0.04);">Video</button>
+                        <button class="filter-btn" onclick="setArchiveFilter('Coding'); playBlip(680, 0.04);">Developer</button>
+                        <button class="filter-btn filter-pk" id="filter-pakistan-btn" onclick="togglePakistanFilter()" title="Filter tools confirmed for users in Pakistan without VPN">
+                            🇵🇰 Confirmed Pakistan Access
+                        </button>
                     </div>
                 </div>
 
-                <div style="display:flex; justify-content:space-between; align-items:baseline; margin-bottom:20px;">
+                <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:12px; margin-bottom:20px;">
                     <span class="label" id="archive-count-label" style="margin:0;">Showing 0 discoveries</span>
-                    <button class="filter-btn" onclick="resetArchiveFilters()" style="font-size:0.62rem;">Reset Filters ↺</button>
+                    <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+                        <button class="filter-btn" onclick="exportArchiveCSV(); playBlip(600, 0.05);" title="Download entire archive as CSV spreadsheet" style="display:inline-flex; align-items:center; gap:5px; font-weight:700;">
+                            <span class="material-symbols-outlined" style="font-size:16px;">table_view</span>
+                            <span>Download CSV</span>
+                        </button>
+                        <button class="filter-btn" onclick="exportArchiveJSON(); playBlip(640, 0.05);" title="Download entire dataset as formatted JSON" style="display:inline-flex; align-items:center; gap:5px; font-weight:700;">
+                            <span class="material-symbols-outlined" style="font-size:16px;">data_object</span>
+                            <span>Download JSON</span>
+                        </button>
+                        <button class="filter-btn" onclick="resetArchiveFilters()" style="font-size:0.62rem;">Reset Filters ↺</button>
+                    </div>
                 </div>
 
                 <div class="history-grid" id="history-grid">
@@ -1546,7 +1698,7 @@
                             <label class="form-label">Google Sheet URL or Spreadsheet ID *</label>
                             <p style="font-size:0.8rem; color:var(--ink-medium); margin:0 0 8px 0;">Paste your Google Sheet link (e.g. <code>https://docs.google.com/spreadsheets/d/1Bxi.../edit</code>) or raw Sheet ID.</p>
                             <div class="sheets-inputs-row">
-                                <input class="form-input" id="sheets-id-input" placeholder="https://docs.google.com/spreadsheets/d/YOUR_SPREADSHEET_ID/edit">
+                                <input class="form-input" id="sheets-id-input" placeholder="https://docs.google.com/spreadsheets/d/YOUR_SPREADSHEET_ID/edit" autocomplete="off">
                                 <button class="btn-research btn-sheets-action" onclick="triggerSheetsExport(false)">
                                     <span class="material-symbols-outlined" style="font-size:18px;">upload_file</span>
                                     <span>Export Today's Pick</span>
@@ -1556,10 +1708,37 @@
                                     <span>Export All Vault</span>
                                 </button>
                             </div>
+                            <!-- Live Regex Indicator Badge -->
+                            <div id="sheets-regex-badge"></div>
                         </div>
 
                         <!-- Sheets Export Feedback Banner -->
                         <div class="research-status-banner" id="sheets-status-banner"></div>
+                    </div>
+
+                    <!-- Supabase PostgreSQL Cloud Sync Card -->
+                    <div class="sheets-sync-card" style="border-top:3px solid #3ecf8e; margin-top:20px;">
+                        <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px; margin-bottom:10px;">
+                            <div>
+                                <span class="label" style="color:#059669; margin:0 0 2px 0;">SUPABASE POSTGRESQL SYNC</span>
+                                <h3 style="font-family:'Syne',sans-serif; font-size:1.35rem; margin:0;">Database & Cloud Records</h3>
+                                <p style="font-size:0.78rem; color:var(--ink-medium); margin:4px 0 0 0;">
+                                    Sync your local JSON discovery repository to cloud PostgreSQL with Row Level Security (configured via <code>schema.sql</code>).
+                                </p>
+                            </div>
+                            <span class="chip" style="background:rgba(62, 207, 142, 0.12); color:#065f46; border-color:#3ecf8e; font-weight:700;">
+                                RLS & REST Ready
+                            </span>
+                        </div>
+
+                        <div class="sheets-inputs-row" style="margin-top:10px;">
+                            <input class="form-input" id="supabase-url-input" placeholder="https://your-project.supabase.co (or leave blank for server env)">
+                            <button class="btn-research" style="background:#059669; color:#fff;" onclick="triggerSupabaseSync()">
+                                <span class="material-symbols-outlined" style="font-size:18px;">database</span>
+                                <span>Sync Vault to Supabase</span>
+                            </button>
+                        </div>
+                        <div class="research-status-banner" id="supabase-status-banner"></div>
                     </div>
 
                     <!-- Research Submission & Publishing Form -->
@@ -1658,6 +1837,15 @@
                                     <label class="form-label">Pricing URL (Optional)</label>
                                     <input class="form-input" id="rf-pricing" type="url" placeholder="https://example.com/pricing">
                                 </div>
+                            </div>
+
+                            <!-- Automated Auto-Export on Publish Toggle -->
+                            <div class="auto-export-toggle-box" style="margin: 16px 0; padding: 12px 16px; border: 1.5px dashed var(--ink); background: rgba(255, 77, 0, 0.04); display: flex; align-items: center; justify-content: space-between; border-radius: 4px;">
+                                <label for="rf-auto-sheets" style="display:flex; align-items:center; gap:10px; cursor:pointer; font-family:'Space Mono',monospace; font-size:0.76rem; font-weight:700; color:var(--ink);">
+                                    <input type="checkbox" id="rf-auto-sheets" style="width:18px; height:18px; accent-color:var(--accent); cursor:pointer;">
+                                    <span>Automatically push to my connected Google Sheet when I click Publish</span>
+                                </label>
+                                <span class="label" style="margin:0; font-size:0.6rem; color:var(--accent);">SHEETS AUTO-SYNC</span>
                             </div>
 
                             <div class="research-status-banner" id="rf-status-banner"></div>
@@ -2220,6 +2408,52 @@
             }).join("");
         }
 
+        let onlyPakistanVerified = false;
+
+        function togglePakistanFilter() {
+            onlyPakistanVerified = !onlyPakistanVerified;
+            const btn = document.getElementById('filter-pakistan-btn');
+            if (btn) {
+                btn.classList.toggle('active', onlyPakistanVerified);
+            }
+            playBlip(onlyPakistanVerified ? 680 : 440, 0.05);
+            applyArchiveFilters();
+            showToast(onlyPakistanVerified ? 'Showing only tools with confirmed Pakistan access' : 'Reset Pakistan filter');
+        }
+
+        function exportArchiveCSV() {
+            if (!historyRecords || !historyRecords.length) {
+                showToast('No records in vault to export.');
+                return;
+            }
+            // Trigger server export endpoint or fallback blob
+            const downloadUrl = `/api/export/csv?t=${Date.now()}`;
+            const link = document.createElement('a');
+            link.href = downloadUrl;
+            link.setAttribute('download', `daily-ai-discovery-vault-${new Date().toISOString().split('T')[0]}.csv`);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+            playSuccessChime();
+            showToast('Initiating Vault CSV download...');
+        }
+
+        function exportArchiveJSON() {
+            if (!historyRecords || !historyRecords.length) {
+                showToast('No records in vault to export.');
+                return;
+            }
+            const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(historyRecords, null, 2));
+            const dlAnchorElem = document.createElement('a');
+            dlAnchorElem.setAttribute("href", dataStr);
+            dlAnchorElem.setAttribute("download", `daily-ai-discovery-vault-${new Date().toISOString().split('T')[0]}.json`);
+            document.body.appendChild(dlAnchorElem);
+            dlAnchorElem.click();
+            document.body.removeChild(dlAnchorElem);
+            playSuccessChime();
+            showToast('Downloaded vault JSON file!');
+        }
+
         function applyArchiveFilters() {
             const query = (document.getElementById('archive-search')?.value || '').toLowerCase().trim();
             let filtered = [...historyRecords];
@@ -2228,6 +2462,17 @@
                 filtered = filtered.filter(item => {
                     const cat = (item.category || '').toLowerCase();
                     return cat.includes(activeArchiveFilter.toLowerCase());
+                });
+            }
+
+            if (onlyPakistanVerified) {
+                filtered = filtered.filter(item => {
+                    const pak = (item.signup_pakistan || '').toLowerCase();
+                    if (!pak) return false;
+                    if (pak.includes('requires vpn') || pak.includes('restricted') || pak.includes('blocked') || pak.includes('not available')) {
+                        return false;
+                    }
+                    return pak.includes('yes') || pak.includes('verified') || pak.includes('global') || pak.includes('available') || pak.includes('direct') || pak.includes('confirmed') || pak.includes('no regional restrictions');
                 });
             }
 
@@ -2243,7 +2488,7 @@
 
         function setArchiveFilter(filterKey) {
             activeArchiveFilter = filterKey;
-            document.querySelectorAll('#category-filters .filter-btn').forEach(btn => {
+            document.querySelectorAll('#category-filters .filter-btn:not(.filter-pk)').forEach(btn => {
                 if (btn.textContent.toLowerCase().includes(filterKey.toLowerCase()) || (filterKey === 'ALL' && btn.textContent === 'All')) {
                     btn.classList.add('active');
                 } else {
@@ -2256,6 +2501,9 @@
         function resetArchiveFilters() {
             const searchInput = document.getElementById('archive-search');
             if (searchInput) searchInput.value = '';
+            onlyPakistanVerified = false;
+            const pkBtn = document.getElementById('filter-pakistan-btn');
+            if (pkBtn) pkBtn.classList.remove('active');
             setArchiveFilter('ALL');
         }
 
@@ -2334,7 +2582,41 @@
                 banner.className = 'research-status-banner success';
                 banner.innerHTML = `<span>✓ <strong>Success:</strong> Published "${discoveryPayload.name}"! Updated featured.json, history.json, and created markdown report.</span>`;
 
+                playSuccessChime();
                 showToast('Discovery Published Successfully!');
+
+                // Automated Auto-Export on Publish to Google Sheet if checkbox checked
+                const autoSheetsChecked = document.getElementById('rf-auto-sheets')?.checked;
+                const targetSheetVal = document.getElementById('sheets-id-input')?.value.trim();
+                if (autoSheetsChecked) {
+                    if (!inMemoryAccessToken) {
+                        showToast('Published! (Google Sheet auto-export requires sign-in above)');
+                    } else if (!targetSheetVal) {
+                        showToast('Published! (Enter your Google Sheet URL or ID above to auto-export)');
+                    } else {
+                        try {
+                            const sheetsRes = await fetch('/api/export-to-sheets', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                    'Authorization': `Bearer ${inMemoryAccessToken}`
+                                },
+                                body: JSON.stringify({
+                                    spreadsheetId: targetSheetVal,
+                                    exportAll: false,
+                                    discovery: discoveryPayload,
+                                    accessToken: inMemoryAccessToken
+                                })
+                            });
+                            const sheetsData = await sheetsRes.json();
+                            if (sheetsRes.ok) {
+                                showToast(`Auto-exported "${discoveryPayload.name}" to Google Sheet!`);
+                            }
+                        } catch (sErr) {
+                            console.warn('Auto-export error:', sErr);
+                        }
+                    }
+                }
 
                 renderFeatured(discoveryPayload);
                 historyRecords = [discoveryPayload, ...historyRecords.filter(h => h.name !== discoveryPayload.name)];
@@ -2342,7 +2624,7 @@
 
                 setTimeout(() => {
                     navigateTo('latest');
-                }, 1400);
+                }, 1600);
 
             } catch (err) {
                 banner.style.display = 'flex';
@@ -2354,6 +2636,183 @@
                 submitBtn.innerHTML = '<span class="material-symbols-outlined" style="font-size:18px;">bolt</span><span>Save & Publish Discovery</span>';
             }
         }
+
+        // Live Regex Check for Google Sheets URL / ID
+        function extractSpreadsheetId(val) {
+            if (!val) return null;
+            const trimmed = val.trim();
+            const urlMatch = trimmed.match(/\/spreadsheets\/d\/([a-zA-Z0-9-_]+)/);
+            if (urlMatch && urlMatch[1]) return urlMatch[1];
+            if (/^[a-zA-Z0-9-_]{20,}$/.test(trimmed) && !trimmed.includes('/')) return trimmed;
+            return null;
+        }
+
+        function validateSheetInput() {
+            const input = document.getElementById('sheets-id-input');
+            const badge = document.getElementById('sheets-regex-badge');
+            if (!input || !badge) return;
+            const val = input.value.trim();
+            if (!val) {
+                badge.style.display = 'none';
+                badge.innerHTML = '';
+                return;
+            }
+            const id = extractSpreadsheetId(val);
+            badge.style.display = 'block';
+            if (id) {
+                badge.style.background = '#ecfdf5';
+                badge.style.color = '#065f46';
+                badge.style.border = '1px solid #10b981';
+                badge.innerHTML = `<span style="font-weight:700;">✓ Valid ID format:</span> <code style="background:rgba(0,0,0,0.06); padding:2px 5px; border-radius:2px;">${id}</code>`;
+            } else {
+                badge.style.background = '#fffbeb';
+                badge.style.color = '#92400e';
+                badge.style.border = '1px solid #f59e0b';
+                badge.innerHTML = `<span>⚠️ Invalid link: Expected <code>docs.google.com/spreadsheets/d/SPREADSHEET_ID/...</code> or 20+ character Sheet ID</span>`;
+            }
+        }
+
+        // Supabase Database Sync Handler
+        async function triggerSupabaseSync() {
+            const banner = document.getElementById('supabase-status-banner');
+            const customUrl = document.getElementById('supabase-url-input')?.value.trim();
+            if (!historyRecords || !historyRecords.length) {
+                showToast('Vault records are still loading...');
+                return;
+            }
+            banner.style.display = 'flex';
+            banner.className = 'research-status-banner';
+            banner.style.background = '#f3f4f6';
+            banner.style.color = '#374151';
+            banner.innerHTML = `<span>⏳ Syncing ${historyRecords.length} discovery records to Supabase PostgreSQL...</span>`;
+
+            try {
+                const res = await fetch('/api/supabase/sync', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        items: historyRecords,
+                        supabaseUrl: customUrl || undefined
+                    })
+                });
+                const data = await res.json();
+                if (!res.ok) throw new Error(data.error || 'Failed to sync with Supabase');
+
+                banner.className = 'research-status-banner success';
+                banner.innerHTML = `<span>✓ <strong>Supabase Synced:</strong> ${data.message} (${data.count} records processed).</span>`;
+                playSuccessChime();
+                showToast('Supabase database sync complete!');
+            } catch (err) {
+                banner.className = 'research-status-banner error';
+                banner.innerHTML = `<span>⚠️ <strong>Supabase Notice:</strong> ${err.message} (Verify SUPABASE_URL and SUPABASE_KEY in environment or run schema.sql).</span>`;
+                showToast('Supabase notice: ' + err.message);
+            }
+        }
+
+        // Web Audio Synthesizer (Micro-SFX)
+        let audioCtx = null;
+        let sfxEnabled = true;
+
+        function getAudioContext() {
+            if (!audioCtx && (window.AudioContext || window.webkitAudioContext)) {
+                const AudioClass = window.AudioContext || window.webkitAudioContext;
+                audioCtx = new AudioClass();
+            }
+            if (audioCtx && audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+            return audioCtx;
+        }
+
+        function playBlip(freq = 600, duration = 0.05) {
+            if (!sfxEnabled) return;
+            try {
+                const ctx = getAudioContext();
+                if (!ctx) return;
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(freq, ctx.currentTime);
+                gain.gain.setValueAtTime(0.08, ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + duration);
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.start();
+                osc.stop(ctx.currentTime + duration);
+            } catch (e) {}
+        }
+
+        function playSuccessChime() {
+            if (!sfxEnabled) return;
+            try {
+                const ctx = getAudioContext();
+                if (!ctx) return;
+                [523.25, 659.25, 783.99, 1046.50].forEach((freq, i) => {
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.type = 'triangle';
+                    osc.frequency.setValueAtTime(freq, ctx.currentTime + (i * 0.06));
+                    gain.gain.setValueAtTime(0.08, ctx.currentTime + (i * 0.06));
+                    gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + (i * 0.06) + 0.16);
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    osc.start(ctx.currentTime + (i * 0.06));
+                    osc.stop(ctx.currentTime + (i * 0.06) + 0.18);
+                });
+            } catch (e) {}
+        }
+
+        function toggleAudioSFX() {
+            sfxEnabled = !sfxEnabled;
+            const label = document.getElementById('sfx-label');
+            const icon = document.getElementById('sfx-icon');
+            if (label) label.textContent = `SFX Sounds: ${sfxEnabled ? 'ON' : 'OFF'}`;
+            if (icon) icon.textContent = sfxEnabled ? 'volume_up' : 'volume_off';
+            if (sfxEnabled) playBlip(750, 0.08);
+            showToast(`Sound FX ${sfxEnabled ? 'enabled' : 'disabled'}`);
+        }
+
+        // Global Keyboard Navigation (1, 2, 3, 4, /)
+        window.addEventListener('keydown', (e) => {
+            const tag = e.target.tagName ? e.target.tagName.toLowerCase() : '';
+            const isEditing = tag === 'input' || tag === 'textarea' || tag === 'select' || e.target.isContentEditable;
+
+            if (e.key === 'Escape') {
+                if (isEditing) e.target.blur();
+                return;
+            }
+
+            if (isEditing) return;
+
+            if (e.key === '1') {
+                e.preventDefault();
+                navigateTo('latest');
+                playBlip(520, 0.05);
+            } else if (e.key === '2') {
+                e.preventDefault();
+                navigateTo('schedule');
+                playBlip(580, 0.05);
+            } else if (e.key === '3') {
+                e.preventDefault();
+                navigateTo('archive');
+                playBlip(660, 0.05);
+            } else if (e.key === '4') {
+                e.preventDefault();
+                navigateTo('research');
+                playBlip(740, 0.05);
+            } else if (e.key === '/') {
+                e.preventDefault();
+                navigateTo('archive');
+                setTimeout(() => {
+                    const searchInput = document.getElementById('archive-search');
+                    if (searchInput) {
+                        searchInput.focus();
+                        searchInput.select();
+                    }
+                }, 100);
+                playBlip(800, 0.06);
+            }
+        });
 
         function fillSampleData() {
             document.getElementById('rf-name').value = "Ollama — Local LLM Desktop Runner";
@@ -2384,6 +2843,13 @@
             }
 
             renderSchedule();
+
+            // Setup real-time regex check for sheets input
+            const sheetsInput = document.getElementById('sheets-id-input');
+            if (sheetsInput) {
+                sheetsInput.addEventListener('input', validateSheetInput);
+                validateSheetInput();
+            }
 
             Promise.all([
                 fetch('/api/featured').then(r => r.ok ? r.json() : fetch('./data/featured.json').then(r => r.json())),

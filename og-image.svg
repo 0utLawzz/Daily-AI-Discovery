@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#090e1b"/>
+      <stop offset="100%" stop-color="#141f35"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="40" y="40" width="1120" height="550" rx="8" fill="none" stroke="#26334c" stroke-width="2"/>
+  
+  <!-- Brand Header -->
+  <text x="90" y="120" font-family="monospace" font-size="20" letter-spacing="4" fill="#ff4d00" font-weight="bold">[01] DAILY AI DISCOVERY</text>
+  <circle cx="1100" cy="115" r="8" fill="#059669"/>
+  <text x="970" y="122" font-family="monospace" font-size="16" fill="#91a0b9">24H CYCLE</text>
+
+  <!-- Big Hero Title -->
+  <text x="90" y="240" font-family="system-ui, sans-serif" font-size="76" font-weight="900" fill="#ffffff" letter-spacing="-2">UNEARTH YOUR DAILY</text>
+  <text x="90" y="325" font-family="system-ui, sans-serif" font-size="76" font-weight="900" fill="#ff4d00" letter-spacing="-2">AI INTELLIGENCE.</text>
+
+  <!-- Subtitle -->
+  <text x="90" y="400" font-family="system-ui, sans-serif" font-size="28" fill="#91a0b9" font-weight="400">One independently researched free or freemium AI tool every day.</text>
+  <text x="90" y="440" font-family="system-ui, sans-serif" font-size="28" fill="#91a0b9" font-weight="400">Documented quotas, verified links, zero duplicate picks.</text>
+
+  <!-- Tag Badges -->
+  <rect x="90" y="495" width="220" height="42" rx="4" fill="rgba(255,255,255,0.08)" stroke="#ff4d00" stroke-width="1.5"/>
+  <text x="110" y="522" font-family="monospace" font-size="16" fill="#ffffff">✦ 100% FREE VERIFIED</text>
+
+  <rect x="330" y="495" width="210" height="42" rx="4" fill="rgba(255,255,255,0.08)" stroke="#26334c" stroke-width="1.5"/>
+  <text x="350" y="522" font-family="monospace" font-size="16" fill="#91a0b9">◎ NO REPEATS</text>
+
+  <rect x="560" y="495" width="240" height="42" rx="4" fill="rgba(255,255,255,0.08)" stroke="#26334c" stroke-width="1.5"/>
+  <text x="580" y="522" font-family="monospace" font-size="16" fill="#91a0b9">↗ PLAY STORE VERIFIED</text>
+  
+  <!-- Right decorative spark -->
+  <path d="M1020 320 L1045 400 L1125 425 L1045 450 L1020 530 L995 450 L915 425 L995 400 Z" fill="rgba(255,77,0,0.15)"/>
+  <path d="M1020 360 L1035 410 L1085 425 L1035 440 L1020 490 L1005 440 L955 425 L1005 410 Z" fill="#ff4d00"/>
+</svg>
