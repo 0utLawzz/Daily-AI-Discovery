@@ -1,0 +1,8 @@
+{
+  "name": "Daily AI Discovery",
+  "description": "One useful free or freemium AI discovery, researched every day.",
+  "permissions": [],
+  "capabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
