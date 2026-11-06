@@ -12,7 +12,7 @@
 - **24-Hour Editorial Cycle**: Hand-researched AI tools covering weekly category rotations (Audio, Image, Video, Animation, Developer/CLI, Hidden Gems, Reasoning).
 - **Interactive Brutalist UI**: Custom typography, 3x preview image showcase, verified destination badges (Official Website, Direct Sandbox, Google Play Store app verification).
 - **Google Sheets Live Sync**: One-click OAuth Google Workspace integration to push curated discoveries directly into your private or team Google Sheets.
-- **Automated Auto-Export on Publish**: Toggle on the research form to automatically append published discoveries to your connected Google Sheet.
+- **Daily ChatGPT Automation publishing**: ChatGPT researches exactly one eligible tool per day and commits the verified discovery, history entry, and dated report to GitHub in one atomic commit.
 - **Real-Time Sheets URL Regex Validation**: Instant visual badge (`✓ Valid ID format` / `⚠️ Invalid link`) as you paste or type.
 - **One-Click CSV & JSON Vault Export**: Download the entire verified discovery dataset instantly to your computer (`.csv` or `.json`).
 - **RSS 2.0 & JSON Feed 1.1**: Syndicate discoveries to Feedly, Slack, Discord bots, and RSS readers via `/feed.xml` and `/feed.json`.
@@ -25,8 +25,8 @@
   - `/` → Focus Vault Search
   - `Esc` → Blur search input
 - **Web Audio SFX Engine**: Micro-synthesizer sound feedback for clicks and confirmations (with persistent mute toggle).
-- **Supabase Cloud Database Ready**: Includes complete `schema.sql` (PostgreSQL with Row Level Security) and sync endpoint (`/api/supabase/sync`).
-- **Vercel & GitHub Pages Ready**: Zero-config deployment via `vercel.json` or `.github/workflows/pages.yml`.
+- **Optional Supabase archive**: `schema.sql` is available for a future database-backed archive; it is not required for daily publishing.
+- **GitHub Pages publishing**: GitHub Actions validates the data before deploying the static dashboard. Vercel is optional and is not in the daily publishing path.
 - **GitHub Community Standards**: MIT License, Contributor Covenant Code of Conduct, security policy, and structured nomination/bug report templates.
 
 ---
@@ -48,16 +48,19 @@ npm run dev
 
 ---
 
-## Vercel Deployment
+## Daily publishing architecture
 
-Deploy in one click to [Vercel](https://vercel.com):
+1. A ChatGPT Automation task runs daily in the `Asia/Karachi` timezone.
+2. It researches exactly one tool according to `config/schedule.json`.
+3. It checks `data/history.json` to prevent repeats and verifies pricing, free-tier limits, official links, Android availability, Pakistan access, and evidence.
+4. It creates one atomic Git commit updating `data/featured.json`, `data/history.json`, and `reports/YYYY-MM-DD.md`.
+5. GitHub Actions runs `scripts/validate-data.js`. Only valid data is deployed to GitHub Pages.
 
-1. Import your GitHub repository into your Vercel Dashboard.
-2. Vercel automatically detects `vercel.json` and configures the Express API runner and static assets.
-3. (Optional) Set the following environment variables under **Project Settings → Environment Variables**:
-   - `SUPABASE_URL`: Your Supabase project URL (`https://your-project.supabase.co`)
-   - `SUPABASE_SERVICE_ROLE_KEY` or `SUPABASE_ANON_KEY`: Your Supabase API key
-4. Click **Deploy**. Your app is live at `https://your-app.vercel.app`!
+**Important:** GitHub Actions does not perform AI research. ChatGPT Automation is the research and publishing controller. GitHub Actions only validates and deploys the commit. See [`AUTOMATION_PUBLISHING.md`](AUTOMATION_PUBLISHING.md) for the exact publishing contract.
+
+## Optional Vercel deployment
+
+The repository contains a legacy Express/Vercel configuration for optional API hosting. It is not required for the ChatGPT-to-GitHub publishing flow. Do not put Supabase service-role keys, Google OAuth tokens, or publishing secrets in browser code or repository files.
 
 ---
 
@@ -95,6 +98,8 @@ To persist your discoveries in a dedicated PostgreSQL database:
 │   ├── featured.json          # Active featured discovery
 │   └── history.json           # Permanent no-repeat historical repository
 ├── reports/                   # Dated markdown research reports
+├── scripts/validate-data.js   # Pre-deployment data integrity checks
+├── AUTOMATION_PUBLISHING.md   # ChatGPT Automation publishing contract
 ├── CODE_OF_CONDUCT.md         # Contributor Covenant v2.1
 ├── CONTRIBUTING.md            # Editorial guidelines & submission process
 ├── LICENSE                    # MIT License
