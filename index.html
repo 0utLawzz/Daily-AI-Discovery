@@ -1746,7 +1746,7 @@
                         <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1.5px solid var(--ink); padding-bottom:16px; margin-bottom:20px;">
                             <div>
                                 <span class="label" style="color:var(--accent); margin:0;">DAILY RESEARCH UPDATE TOOL</span>
-                                <h3 style="font-family:'Syne',sans-serif; font-size:1.6rem; margin:4px 0 0 0;">Publish or Edit Today's Discovery</h3>
+                                <h3 style="font-family:'Syne',sans-serif; font-size:1.6rem; margin:4px 0 0 0;">Research Preview — Publishing is Automation-Controlled</h3>
                             </div>
                             <button class="btn-link btn-share" onclick="fillSampleData()" style="color:var(--ink); border-color:var(--ink);">
                                 ✦ Auto-Fill Test Data
@@ -1843,21 +1843,21 @@
                             <div class="auto-export-toggle-box" style="margin: 16px 0; padding: 12px 16px; border: 1.5px dashed var(--ink); background: rgba(255, 77, 0, 0.04); display: flex; align-items: center; justify-content: space-between; border-radius: 4px;">
                                 <label for="rf-auto-sheets" style="display:flex; align-items:center; gap:10px; cursor:pointer; font-family:'Space Mono',monospace; font-size:0.76rem; font-weight:700; color:var(--ink);">
                                     <input type="checkbox" id="rf-auto-sheets" style="width:18px; height:18px; accent-color:var(--accent); cursor:pointer;">
-                                    <span>Automatically push to my connected Google Sheet when I click Publish</span>
+                                    <span>Google Sheets export is a separate manual action; daily publishing is handled by ChatGPT Automation.</span>
                                 </label>
-                                <span class="label" style="margin:0; font-size:0.6rem; color:var(--accent);">SHEETS AUTO-SYNC</span>
+                                <span class="label" style="margin:0; font-size:0.6rem; color:var(--accent);">AUTOMATION PUBLISHING</span>
                             </div>
 
                             <div class="research-status-banner" id="rf-status-banner"></div>
 
                             <div class="research-actions">
-                                <button type="submit" class="btn-research btn-publish" id="rf-submit-btn">
+                                <button type="button" class="btn-research btn-publish" id="rf-submit-btn" disabled>
                                     <span class="material-symbols-outlined" style="font-size:18px;">bolt</span>
-                                    <span>Save & Publish Discovery</span>
+                                    <span>Published by ChatGPT Automation</span>
                                 </button>
                                 <button type="button" class="btn-research btn-ghost" onclick="checkDuplicateOnline()">
                                     <span class="material-symbols-outlined" style="font-size:18px;">search_check</span>
-                                    <span>Check Anti-Duplicate</span>
+                                    <span>Check Local Archive</span>
                                 </button>
                             </div>
                         </form>
@@ -2519,122 +2519,29 @@
                 return;
             }
 
-            try {
-                const res = await fetch('/api/research/check-duplicate', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ name, url })
-                });
-                const data = await res.json();
+            const normalize = value => String(value || '').toLowerCase().replace(/[^a-z0-9]+/g, '');
+            const match = historyRecords.find(item =>
+                (name && normalize(item.name) === normalize(name)) ||
+                (url && item.official_url && item.official_url.replace(/\/$/, '').toLowerCase() === url.replace(/\/$/, '').toLowerCase())
+            );
 
-                banner.style.display = 'flex';
-                if (data.isDuplicate) {
-                    banner.className = 'research-status-banner error';
-                    banner.innerHTML = `<span>⚠️ <strong>Duplicate Warning:</strong> "${data.match.name}" was already featured on ${data.match.date}. Please pick a unique AI discovery.</span>`;
-                } else {
-                    banner.className = 'research-status-banner success';
-                    banner.innerHTML = `<span>✓ <strong>Integrity Check Passed:</strong> "${name || url}" has not been featured before. Safe to publish!</span>`;
-                }
-            } catch (err) {
-                showToast('Duplicate check complete (local records clear)');
+            banner.style.display = 'flex';
+            if (match) {
+                banner.className = 'research-status-banner error';
+                banner.innerHTML = `<span>⚠️ <strong>Duplicate Warning:</strong> "${match.name}" was already featured on ${match.date}. Choose a genuinely different tool.</span>`;
+            } else {
+                banner.className = 'research-status-banner success';
+                banner.innerHTML = `<span>✓ <strong>Local archive check passed:</strong> No exact match for "${name || url}". ChatGPT Automation still performs the full near-duplicate review before publishing.</span>`;
             }
         }
 
         async function handleResearchSubmit(e) {
             e.preventDefault();
-            const submitBtn = document.getElementById('rf-submit-btn');
             const banner = document.getElementById('rf-status-banner');
-
-            const discoveryPayload = {
-                name: document.getElementById('rf-name').value.trim(),
-                developer: document.getElementById('rf-developer').value.trim(),
-                category: document.getElementById('rf-category').value,
-                date: document.getElementById('rf-date').value || new Date().toISOString().split('T')[0],
-                date_checked: document.getElementById('rf-date').value || new Date().toISOString().split('T')[0],
-                short_verdict: document.getElementById('rf-verdict').value.trim(),
-                what_it_does: document.getElementById('rf-what').value.trim(),
-                why_try_it: document.getElementById('rf-why').value.trim(),
-                free_tier: document.getElementById('rf-free').value.trim(),
-                limits: document.getElementById('rf-limits').value.trim(),
-                signup_pakistan: document.getElementById('rf-pakistan').value.trim(),
-                quality_evidence: document.getElementById('rf-evidence').value.trim(),
-                official_url: document.getElementById('rf-official').value.trim(),
-                use_url: document.getElementById('rf-use').value.trim(),
-                pricing_url: document.getElementById('rf-pricing').value.trim(),
-                android_app_verified: Boolean(document.getElementById('rf-play').value.trim()),
-                android_play_url: document.getElementById('rf-play').value.trim()
-            };
-
-            submitBtn.disabled = true;
-            submitBtn.innerHTML = '<span>Publishing to Repository...</span>';
-
-            try {
-                const res = await fetch('/api/research/publish', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(discoveryPayload)
-                });
-                const result = await res.json();
-
-                if (!res.ok) throw new Error(result.error || 'Failed to publish');
-
-                banner.style.display = 'flex';
-                banner.className = 'research-status-banner success';
-                banner.innerHTML = `<span>✓ <strong>Success:</strong> Published "${discoveryPayload.name}"! Updated featured.json, history.json, and created markdown report.</span>`;
-
-                playSuccessChime();
-                showToast('Discovery Published Successfully!');
-
-                // Automated Auto-Export on Publish to Google Sheet if checkbox checked
-                const autoSheetsChecked = document.getElementById('rf-auto-sheets')?.checked;
-                const targetSheetVal = document.getElementById('sheets-id-input')?.value.trim();
-                if (autoSheetsChecked) {
-                    if (!inMemoryAccessToken) {
-                        showToast('Published! (Google Sheet auto-export requires sign-in above)');
-                    } else if (!targetSheetVal) {
-                        showToast('Published! (Enter your Google Sheet URL or ID above to auto-export)');
-                    } else {
-                        try {
-                            const sheetsRes = await fetch('/api/export-to-sheets', {
-                                method: 'POST',
-                                headers: {
-                                    'Content-Type': 'application/json',
-                                    'Authorization': `Bearer ${inMemoryAccessToken}`
-                                },
-                                body: JSON.stringify({
-                                    spreadsheetId: targetSheetVal,
-                                    exportAll: false,
-                                    discovery: discoveryPayload,
-                                    accessToken: inMemoryAccessToken
-                                })
-                            });
-                            const sheetsData = await sheetsRes.json();
-                            if (sheetsRes.ok) {
-                                showToast(`Auto-exported "${discoveryPayload.name}" to Google Sheet!`);
-                            }
-                        } catch (sErr) {
-                            console.warn('Auto-export error:', sErr);
-                        }
-                    }
-                }
-
-                renderFeatured(discoveryPayload);
-                historyRecords = [discoveryPayload, ...historyRecords.filter(h => h.name !== discoveryPayload.name)];
-                applyArchiveFilters();
-
-                setTimeout(() => {
-                    navigateTo('latest');
-                }, 1600);
-
-            } catch (err) {
-                banner.style.display = 'flex';
-                banner.className = 'research-status-banner error';
-                banner.innerHTML = `<span>⚠️ <strong>Error:</strong> ${err.message}</span>`;
-                showToast('Error saving discovery: ' + err.message);
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = '<span class="material-symbols-outlined" style="font-size:18px;">bolt</span><span>Save & Publish Discovery</span>';
-            }
+            banner.style.display = 'flex';
+            banner.className = 'research-status-banner';
+            banner.innerHTML = '<span><strong>Publishing is managed by ChatGPT Automation.</strong> This dashboard is read-only for daily discoveries. The automation commits verified data directly to GitHub; GitHub Actions validates and deploys it.</span>';
+            showToast('Daily publishing is controlled by ChatGPT Automation.');
         }
 
         // Live Regex Check for Google Sheets URL / ID
