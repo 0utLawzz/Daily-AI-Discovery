@@ -13,10 +13,20 @@
     "date": "2026-11-05",
     "name": "Suno — v6-mini (free-tier music generation)",
     "category": "Voice, speech, music & audio AI",
-    "short_verdict": "Strong for trying full AI song ideas free; the daily generation allowance is useful, but new free accounts cannot rely on regular downloads and free songs are non-commercial.",
+    "short_verdict": "Strong for trying full AI song ideas free; daily generation allowance is useful, but new free accounts cannot rely on regular downloads and free songs are non-commercial.",
     "official_url": "https://suno.com/",
     "use_url": "https://suno.com/create",
     "android_app_verified": true,
     "android_play_url": "https://play.google.com/store/apps/details?id=com.suno.android"
+  },
+  {
+    "date": "2026-11-06",
+    "name": "GitHub Copilot Free",
+    "category": "Coding and developer AI",
+    "short_verdict": "A useful free coding assistant with 2,000 monthly inline completions and GitHub web/mobile chat; chat and agent credits are limited and the exact free allowance is not publicly quantified.",
+    "official_url": "https://github.com/features/copilot",
+    "use_url": "https://github.com/copilot",
+    "android_app_verified": true,
+    "android_play_url": "https://play.google.com/store/apps/details?id=com.github.android"
   }
 ]
