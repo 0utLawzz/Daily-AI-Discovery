@@ -146,8 +146,8 @@ app.get('/api/export/csv', async (req, res) => {
 // Supabase Integration Endpoint: /api/supabase/sync
 app.post('/api/supabase/sync', async (req, res) => {
   try {
-    const supabaseUrl = process.env.SUPABASE_URL || req.body.supabaseUrl;
-    const supabaseKey = process.env.SUPABASE_KEY || req.body.supabaseKey;
+    const supabaseUrl = process.env.SUPABASE_URL;
+    const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.SUPABASE_KEY;
 
     if (!supabaseUrl || !supabaseKey) {
       return res.status(400).json({
