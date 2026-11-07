@@ -28,5 +28,15 @@
     "use_url": "https://github.com/copilot",
     "android_app_verified": true,
     "android_play_url": "https://play.google.com/store/apps/details?id=com.github.android"
+  },
+  {
+    "date": "2026-11-07",
+    "name": "Duck.ai — Private multi-model AI chat",
+    "category": "Hidden gems across any AI category",
+    "short_verdict": "A useful, often-overlooked no-signup way to compare several major AI models in one privacy-focused chat. Free use has an unpublished daily cap; Pakistan-specific free access was not independently tested.",
+    "official_url": "https://duckduckgo.com/",
+    "use_url": "https://duck.ai/",
+    "android_app_verified": true,
+    "android_play_url": "https://play.google.com/store/apps/details?id=com.duckduckgo.mobile.android"
   }
 ]
