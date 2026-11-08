@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-11-08",
+    "name": "Gemini Notebook (formerly NotebookLM)",
+    "category": "General-purpose, research, reasoning and multimodal AI",
+    "short_verdict": "A strong free, source-grounded research workspace: ask questions across PDFs, web pages, YouTube and other material with inline citations, then turn sources into briefs, study aids and audio. Standard access includes 100 notebooks and 50 sources per notebook; AI usage is compute-based and its exact prompt quota is unpublished.",
+    "official_url": "https://workspace.google.com/products/gemini-notebook/",
+    "use_url": "https://notebook.google.com/",
+    "android_app_verified": true,
+    "android_play_url": "https://play.google.com/store/apps/details?id=com.google.android.apps.labs.language.tailwind"
+  },
+  {
     "date": "2026-11-04",
     "name": "Adobe Firefly — Animated Cartoon Generator",
     "category": "Cartoon, animation, avatars & character creation AI",
