@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-11-09",
+    "name": "Recraft Studio (Recraft V4.1)",
+    "category": "Image generation and editing AI",
+    "short_verdict": "A useful free design-first image workspace: 30 credits refresh every 24 hours, and Recraft V4.1 raster/vector variants are available on the Free plan. The key catch is that free outputs are public, owned by Recraft and not licensed for commercial use.",
+    "official_url": "https://www.recraft.ai/",
+    "use_url": "https://www.recraft.ai/auth/login",
+    "android_app_verified": true,
+    "android_play_url": "https://play.google.com/store/apps/details?id=ai.recraft"
+  },
+  {
     "date": "2026-11-08",
     "name": "Gemini Notebook (formerly NotebookLM)",
     "category": "General-purpose, research, reasoning and multimodal AI",
