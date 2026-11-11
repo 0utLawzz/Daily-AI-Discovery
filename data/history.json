@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-11-11",
+    "name": "Tripo AI (Tripo Studio)",
+    "category": "Cartoon, animation, avatar and character creation AI",
+    "short_verdict": "A distinct 3D character and asset creator: text or images become textured 3D meshes, with optional rigging and animation. The free plan includes 200 monthly credits (vendor estimate: about 13 base models), but free models are public/non-commercial and exports are capped at 15 per month (H2.5 only).",
+    "official_url": "https://www.tripo3d.ai/",
+    "use_url": "https://studio.tripo3d.ai/?open=login",
+    "android_app_verified": true,
+    "android_play_url": "https://play.google.com/store/apps/details?id=ai.holymolly.tripo3daimodel"
+  },
+  {
     "date": "2026-11-10",
     "name": "PixVerse AI (V6)",
     "category": "Video generation and editing AI",
