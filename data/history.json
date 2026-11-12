@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-11-12",
+    "name": "ElevenLabs — AI Voice Generator (Eleven v4)",
+    "category": "Voice, speech, music and audio AI",
+    "short_verdict": "A strong voiceover and text-to-speech workspace with a usable free tier: 10,000 shared credits per month (about 10 minutes of standard TTS). Free output is non-commercial and requires attribution; voice cloning and commercial rights require a paid plan.",
+    "official_url": "https://elevenlabs.io/",
+    "use_url": "https://elevenlabs.io/text-to-speech",
+    "android_app_verified": true,
+    "android_play_url": "https://play.google.com/store/apps/details?id=io.elevenlabs.coreapp"
+  },
+  {
     "date": "2026-11-11",
     "name": "Tripo AI (Tripo Studio)",
     "category": "Cartoon, animation, avatar and character creation AI",
