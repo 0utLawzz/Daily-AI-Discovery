@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-11-13",
+    "name": "CodeRabbit — AI Code Review",
+    "category": "Coding and developer AI",
+    "short_verdict": "A PR-focused AI code reviewer, not another code-completion copilot. Its public-repository/open-source plan is free indefinitely and includes AI pull-request reviews. Public repos with fewer than 10 stars must trigger reviews manually; OSS rate limits apply, but the official pages reviewed do not publish a fixed numeric quota.",
+    "official_url": "https://www.coderabbit.ai/",
+    "use_url": "https://www.coderabbit.ai/oss",
+    "android_app_verified": false,
+    "android_play_url": ""
+  },
+  {
     "date": "2026-11-12",
     "name": "ElevenLabs — AI Voice Generator (Eleven v4)",
     "category": "Voice, speech, music and audio AI",
