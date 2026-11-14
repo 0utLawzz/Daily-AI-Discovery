@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-11-14",
+    "name": "Napkin AI — Text-to-Visual Diagrams & Infographics",
+    "category": "Hidden gems from any AI category",
+    "short_verdict": "A useful browser-based visual communication tool that turns selected text into editable diagrams, flowcharts, mind maps, data charts and infographics. Its free plan includes 500 AI credits per week plus unlimited manual editing and PNG/PDF exports; free visuals carry Napkin branding and PPT/SVG exports are limited.",
+    "official_url": "https://www.napkin.ai/",
+    "use_url": "https://app.napkin.ai/",
+    "android_app_verified": false,
+    "android_play_url": ""
+  },
+  {
     "date": "2026-11-13",
     "name": "CodeRabbit — AI Code Review",
     "category": "Coding and developer AI",
