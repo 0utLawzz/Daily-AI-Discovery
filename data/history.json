@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-11-15",
+    "name": "Qwen — Multimodal AI Assistant (Qwen Studio)",
+    "category": "General-purpose, research, reasoning and multimodal AI",
+    "short_verdict": "A broad multimodal AI workspace combining chat, web search, Deep Research, artifacts, image editing/generation and video generation. Qwen describes the service as free to use, but public pages do not state a fixed chat or media-generation quota; standard limits and feature availability can vary. Its biggest caveat is data handling: the terms say prompts must not be confidential or proprietary and allow certain non-personal user content to be used to improve AI services.",
+    "official_url": "https://qwen.ai/",
+    "use_url": "https://chat.qwen.ai/",
+    "android_app_verified": true,
+    "android_play_url": "https://play.google.com/store/apps/details?id=com.tongyi.intl"
+  },
+  {
     "date": "2026-11-14",
     "name": "Napkin AI — Text-to-Visual Diagrams & Infographics",
     "category": "Hidden gems from any AI category",
