@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-11-20",
+    "name": "OpenRouter — Multi-model AI API Gateway",
+    "category": "Coding and developer AI",
+    "short_verdict": "A developer-focused gateway that exposes hundreds of third-party AI models through one OpenAI-compatible API and a browser chat. Its free tier lists 25+ free models and 4 providers, with free-model requests capped at 20 per minute and 50 per day. The main trade-off is that free-model availability and quality vary by upstream provider; it is best for prototyping and model evaluation, not production reliability.",
+    "official_url": "https://openrouter.ai/",
+    "use_url": "https://openrouter.ai/chat",
+    "android_app_verified": false,
+    "android_play_url": ""
+  },
+  {
     "date": "2026-11-16",
     "name": "Photoroom — AI Product Photo Editor & Background Remover",
     "category": "Image generation and editing AI",
