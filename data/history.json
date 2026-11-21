@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-11-21",
+    "name": "Auphonic — AI Audio Post-Production & Leveling",
+    "category": "Hidden gems from any AI category",
+    "short_verdict": "Auphonic is a browser-based AI audio post-production service for cleaning noisy recordings, balancing speech and music levels, removing filler pauses, and normalizing loudness. The free tier includes 2 hours of processing every month with the core audio algorithms and no card required, but free outputs contain an Auphonic jingle. It is best for speech-heavy audio and voiceovers, not a replacement for a DAW or creative music mastering.",
+    "official_url": "https://auphonic.com/",
+    "use_url": "https://auphonic.com/accounts/register/",
+    "android_app_verified": true,
+    "android_play_url": "https://play.google.com/store/apps/details?id=com.auphonic.auphonicrecorder"
+  },
+  {
     "date": "2026-11-20",
     "name": "OpenRouter — Multi-model AI API Gateway",
     "category": "Coding and developer AI",
