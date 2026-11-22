@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-11-22",
+    "name": "Elicit — AI Scientific Research Assistant",
+    "category": "General-purpose, research, reasoning and multimodal AI",
+    "short_verdict": "Elicit is a specialist academic-research assistant for finding papers, summarizing studies, asking questions across research literature, and producing cited reports. Its Basic plan is genuinely free, with unlimited paper search across the vendor-listed 138M+ corpus, unlimited summaries and paper chat; Research Agent and Report usage is limited by an undisclosed monthly pool. Useful for early evidence discovery, but not a replacement for exhaustive database searches or human verification.",
+    "official_url": "https://elicit.com/",
+    "use_url": "https://elicit.com/users/auth?redirectToPath=/select_plan?tier%3Dbasic&show=signup",
+    "android_app_verified": false,
+    "android_play_url": ""
+  },
+  {
     "date": "2026-11-21",
     "name": "Auphonic — AI Audio Post-Production & Leveling",
     "category": "Hidden gems from any AI category",
