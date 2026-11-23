@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-11-23",
+    "name": "Ideogram — AI Image Generator & Editor (4.6)",
+    "category": "Image generation and editing AI",
+    "short_verdict": "Ideogram is a typography-aware image generation and editing workspace for posters, logos, packaging and social graphics. Its Free plan lists 30 credits per week, but free generations are public and downloads are limited to original-size JPEG. The new 4.6 model focuses on precise multi-step edits up to 4K; its exact in-app credit cost varies by settings and is shown before generation. Strong for text-led visual work, but not unlimited production or confidential assets.",
+    "official_url": "https://ideogram.ai/",
+    "use_url": "https://ideogram.ai/",
+    "android_app_verified": false,
+    "android_play_url": ""
+  },
+  {
     "date": "2026-11-22",
     "name": "Elicit — AI Scientific Research Assistant",
     "category": "General-purpose, research, reasoning and multimodal AI",
