@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-11-24",
+    "name": "Vizard — AI Video Repurposing & Clip Maker",
+    "category": "Video generation and editing AI",
+    "short_verdict": "Vizard repurposes long videos such as podcasts, interviews and webinars into short social clips by finding highlight moments, adding captions and reframing the footage. Its Free plan gives 60 credits each month (the help centre defines one credit as one minute processed), plus the editor and AI clipping. The trade-offs are a watermark, 720p exports, a 10-minute export cap and three-day project retention. It is useful for evaluating a repurposing workflow, but the free output is not clean, permanent client-ready production.",
+    "official_url": "https://vizard.ai/",
+    "use_url": "https://vizard.ai/tools/ai-video-editor",
+    "android_app_verified": true,
+    "android_play_url": "https://play.google.com/store/apps/details?id=ai.vizard.android"
+  },
+  {
     "date": "2026-11-23",
     "name": "Ideogram — AI Image Generator & Editor (4.6)",
     "category": "Image generation and editing AI",
