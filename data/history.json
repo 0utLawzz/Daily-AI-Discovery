@@ -1,5 +1,15 @@
 [
   {
+    "date": "2026-11-26",
+    "name": "Moises — AI Stem Separation & Music Practice App",
+    "category": "Voice, speech, music and audio AI",
+    "short_verdict": "Moises is a musician-focused AI practice and production app that separates an existing song into vocal and instrument stems, detects key/BPM/chords, and lets users adjust pitch and tempo. The free plan allows five uploads/separations per month, up to five minutes per file, with preset 2- or 4-stem separation. It is especially useful for practice, karaoke and backing tracks, but the free limits are tight and independent testing found audible artefacts in vocal stems.",
+    "official_url": "https://moises.ai/",
+    "use_url": "https://studio.moises.ai/login/?signup=",
+    "android_app_verified": true,
+    "android_play_url": "https://play.google.com/store/apps/details?id=ai.moises"
+  },
+  {
     "date": "2026-11-24",
     "name": "Vizard — AI Video Repurposing & Clip Maker",
     "category": "Video generation and editing AI",
